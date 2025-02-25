@@ -18,7 +18,7 @@ function Landing() {
         <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
             Access your personalized learning dashboard and explore free courses, roadmaps, and resources 
-            <span className="text-primary"> Upskill Today</span>
+            <span className="text-primary"> Upskill fom Elevatia Today</span>
           </h2>
 
           {/* Dropdowns */}

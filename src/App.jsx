@@ -1,8 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layouts/app-layout";
 import Landing from "./pages/landing";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/loginpage";
 
 import './App.css';
 
@@ -15,7 +14,7 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "/LoginPage",
+        path: "/login",
         element: <LoginPage />,
       },
     ],

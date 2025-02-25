@@ -16,22 +16,22 @@ const Header = () => {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex space-x-6 text-black dark:text-white font-semibold">
-        <Link to="/home" className="flex items-center gap-2 hover:text-pink-500">
+        <Link to="/" className="flex items-center gap-2 hover:text-pink-500">
           <Home className="w-5 h-5" /> HOME
         </Link>
         <Link to="/blog" className="flex items-center gap-2 hover:text-pink-500">
           <BookOpen className="w-5 h-5" /> BLOG
         </Link>
-        <Link to="/contact" className="flex items-center gap-2 hover:text-pink-500 font-bold">
+        <Link to="/contact-us" className="flex items-center gap-2 hover:text-pink-500">
           <Mail className="w-5 h-5" /> CONTACT US
         </Link>
       </nav>
 
       {/* Sign Up Button (Desktop) */}
-      <Link to="/signup" className="hidden md:block">
+      <Link to="/login" className="hidden md:block">
         <Button>
           <UserPlus className="w-5 h-5 mr-2" />
-          SIGN UP
+          LOGIN
         </Button>
       </Link>
 

@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #ffe4e1; /* Light Pink Background */
+  height: 100vh; /* Make sure the background covers the full height of the viewport */
+  overflow: hidden; /* Hide scrollbars */
+}
+
+#root {
+    height: 100%;
+    overflow: auto;
+}
+
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Blurred Circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px); /* Adjust the blur amount as needed */
+  z-index: -1; /* Place behind other content */
+}
+
+/* Pink Circle */
+.circle.pink {
+  width: 200px; /* Adjust size as needed */
+  height: 200px; /* Adjust size as needed */
+  background-color: #ff69b4; /* Pink Color */
+  top: 10%; /* Adjust position as needed */
+  right: 10%; /* Adjust position as needed */
+}
+
+/* Yellow Circle */
+.circle.yellow {
+  width: 150px; /* Adjust size as needed */
+  height: 150px; /* Adjust size as needed */
+  background-color: #ffffe0; /* Yellow Color */
+  bottom: 15%; /* Adjust position as needed */
+  right: 20%; /* Adjust position as needed */
+}

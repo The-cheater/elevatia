@@ -1,113 +1,88 @@
-import { Mail, Key, Facebook, Twitter, Github } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Facebook, Github, X } from "lucide-react";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-      {/* Logo Section - Replace with your image later */}
-      <div className="mb-8">
-        <div className="bg-gray-200 w-32 h-32 rounded-full mb-4" />
-        <h1 className="text-3xl font-bold text-center text-gray-800">Your Logo</h1>
-      </div>
-
-      {/* Login Form */}
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <form className="space-y-6">
-          {/* Email Input */}
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <div className="mt-1 relative rounded-md shadow-sm">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Mail className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="email"
-                id="email"
-                required
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Enter your email"
-              />
-            </div>
-          </div>
-
-          {/* Password Input */}
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <div className="mt-1 relative rounded-md shadow-sm">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Key className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="password"
-                id="password"
-                required
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Enter your password"
-              />
-            </div>
-          </div>
-
-          {/* Remember Me & Forgot Password */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                Remember me
-              </label>
-            </div>
-            <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
-              Forgot password?
-            </a>
-          </div>
-
-          {/* Login Button */}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            LOGIN
-          </button>
-        </form>
-
-        {/* Social Login Section */}
-        <div className="mt-8">
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
-            </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            <button className="w-full flex items-center justify-center p-3 border border-gray-300 rounded-md hover:bg-gray-50">
-              <Facebook className="h-5 w-5 text-blue-600" />
-            </button>
-            <button className="w-full flex items-center justify-center p-3 border border-gray-300 rounded-md hover:bg-gray-50">
-              <Twitter className="h-5 w-5 text-blue-400" />
-            </button>
-            <button className="w-full flex items-center justify-center p-3 border border-gray-300 rounded-md hover:bg-gray-50">
-              <Github className="h-5 w-5 text-gray-700" />
-            </button>
-          </div>
+    <div className="min-h-screen flex flex-col md:flex-row">
+      {/* Left Section - Image/Content Side */}
+      <div className="w-full md:w-1/2 bg-muted/50 p-8 flex items-center justify-center">
+        <div className="max-w-md space-y-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+            OPPORTUNITIES
+          </h1>
+          <p className="text-xl md:text-2xl font-medium">
+            START YOUR JOURNEY NOW!!
+          </p>
+          <p className="text-muted-foreground text-lg">
+            Your dreams are waiting for
+          </p>
         </div>
       </div>
 
-      {/* Sign Up Link */}
-      <p className="mt-8 text-center text-gray-600">
-        Don't have an account?{' '}
-        <a href="#" className="text-blue-600 hover:text-blue-500">
-          Sign up
-        </a>
-      </p>
+      {/* Right Section - Login Form */}
+      <div className="w-full md:w-1/2 p-8 flex items-center justify-center">
+        <div className="w-full max-w-md space-y-6">
+          {/* Login Header */}
+          <div className="text-center space-y-2">
+            <h2 className="text-3xl font-bold">Login Now!!!</h2>
+            <p className="text-muted-foreground">
+              Access your personalized learning dashboard
+            </p>
+          </div>
+
+          {/* Social Login Buttons */}
+          <div className="space-y-4">
+            <Button variant="outline" className="w-full gap-2">
+              <Github className="h-4 w-4" />
+              Login with Github
+            </Button>
+            
+            <Button variant="outline" className="w-full gap-2">
+              <Facebook className="h-4 w-4 text-blue-600" />
+              Login with Facebook
+            </Button>
+            
+            <Button variant="outline" className="w-full gap-2">
+              <X className="h-4 w-4" />
+              Login with X
+            </Button>
+          </div>
+
+          {/* Divider */}
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">
+                OR CONTINUE WITH
+              </span>
+            </div>
+          </div>
+
+          {/* Email Login Form */}
+          <form className="space-y-4">
+            <div className="space-y-2">
+              <Input placeholder="Email" type="email" required />
+            </div>
+            <div className="space-y-2">
+              <Input placeholder="Password" type="password" required />
+            </div>
+            <Button className="w-full" type="submit">
+              Login
+            </Button>
+          </form>
+
+          {/* Query Section */}
+          <div className="text-center text-sm">
+            HAVE A QUERY?{" "}
+            <a href="#" className="underline hover:text-primary border-b">
+              Contact support
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

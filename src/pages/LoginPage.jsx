@@ -1,113 +1,63 @@
-import { Mail, Key, Facebook, Twitter, Github } from 'lucide-react';
+import { Facebook, MessageCircleQuestion, User, User2 } from "lucide-react";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-      {/* Logo Section - Replace with your image later */}
-      <div className="mb-8">
-        <div className="bg-gray-200 w-32 h-32 rounded-full mb-4" />
-        <h1 className="text-3xl font-bold text-center text-gray-800">Your Logo</h1>
-      </div>
+    <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-lg max-w-md w-full p-8 space-y-6">
+        {/* Header Section */}
+        <div className="text-center space-y-4">
+          <h1 className="text-4xl font-bold text-gray-800">LOGIN</h1>
+          <div className="space-y-2">
+            <p className="text-2xl font-semibold text-blue-600">Opportunities</p>
+            <p className="text-xl font-bold text-gray-700">
+              START YOUR JOURNEY NOW!!
+            </p>
+            <p className="text-gray-600">
+              are waiting for <span className="text-blue-600">you</span>
+            </p>
+          </div>
+        </div>
 
-      {/* Login Form */}
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <form className="space-y-6">
-          {/* Email Input */}
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <div className="mt-1 relative rounded-md shadow-sm">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Mail className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="email"
-                id="email"
-                required
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Enter your email"
-              />
-            </div>
+        {/* Login Form */}
+        <form className="space-y-4">
+          <div className="space-y-2">
+            <label className="text-gray-700 font-medium">Username</label>
+            <input
+              type="text"
+              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your username"
+            />
           </div>
 
-          {/* Password Input */}
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <div className="mt-1 relative rounded-md shadow-sm">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Key className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="password"
-                id="password"
-                required
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Enter your password"
-              />
-            </div>
-          </div>
-
-          {/* Remember Me & Forgot Password */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                Remember me
-              </label>
-            </div>
-            <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
-              Forgot password?
-            </a>
-          </div>
-
-          {/* Login Button */}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            LOGIN
+          <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+            <User2 size={20} />
+            Login Now!!!
           </button>
         </form>
 
-        {/* Social Login Section */}
-        <div className="mt-8">
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
-            </div>
-          </div>
+        {/* Social Logins */}
+        <div className="space-y-4">
+          <p className="text-center text-gray-500 font-medium">Login with Others</p>
+          
+          <button className="w-full flex items-center justify-center gap-2 bg-gray-100 p-3 rounded-lg hover:bg-gray-200 transition-colors">
+            <User size={20} className="text-blue-600" />
+            <span className="font-medium">Login with people</span>
+          </button>
 
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            <button className="w-full flex items-center justify-center p-3 border border-gray-300 rounded-md hover:bg-gray-50">
-              <Facebook className="h-5 w-5 text-blue-600" />
-            </button>
-            <button className="w-full flex items-center justify-center p-3 border border-gray-300 rounded-md hover:bg-gray-50">
-              <Twitter className="h-5 w-5 text-blue-400" />
-            </button>
-            <button className="w-full flex items-center justify-center p-3 border border-gray-300 rounded-md hover:bg-gray-50">
-              <Github className="h-5 w-5 text-gray-700" />
-            </button>
-          </div>
+          <button className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors">
+            <Facebook size={20} className="text-white" />
+            <span className="font-medium">Login with Facebook</span>
+          </button>
+        </div>
+
+        {/* Query Section */}
+        <div className="text-center pt-4">
+          <a href="#" className="text-gray-600 hover:text-blue-600 inline-flex items-center gap-1">
+            <MessageCircleQuestion size={16} />
+            HAVE A QUERY?
+          </a>
         </div>
       </div>
-
-      {/* Sign Up Link */}
-      <p className="mt-8 text-center text-gray-600">
-        Don't have an account?{' '}
-        <a href="#" className="text-blue-600 hover:text-blue-500">
-          Sign up
-        </a>
-      </p>
-    </div>
+    </main>
   );
 }

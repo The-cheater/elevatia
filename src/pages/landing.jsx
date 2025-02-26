@@ -335,28 +335,54 @@ function Landing() {
         {/* New Buttons Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           {/* Resume Builder Button */}
-          <Button className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
-            <div className="flex flex-col items-center gap-2">
-              <BookOpenText className="h-6 w-6" />
-              <span className="text-lg font-semibold">Resume Builder</span>
-            </div>
-          </Button>
+          <div className="w-full">
+            <Link
+              to={"https://www.hackerrank.com/resume"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Button className="h-24 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
+                <div className="flex flex-col items-center gap-2">
+                  <BookOpenText className="h-6 w-6" />
+                  <span className="text-lg font-semibold">Resume Builder</span>
+                </div>
+              </Button>
+            </Link>
+          </div>
 
           {/* ATS Score Scanner Button */}
-          <Button className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
-            <div className="flex flex-col items-center gap-2">
-              <Shield className="h-6 w-6" />
-              <span className="text-lg font-semibold">ATS Score Scanner</span>
-            </div>
-          </Button>
+          <div className="w-full">
+            <Link
+              to={"https://resumeworded.com/resume-scanner"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Button className="h-24 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
+                <div className="flex flex-col items-center gap-2">
+                  <Shield className="h-6 w-6" />
+                  <span className="text-lg font-semibold">
+                    ATS Score Scanner
+                  </span>
+                </div>
+              </Button>
+            </Link>
+          </div>
 
           {/* Email Templates Button */}
-          <Button className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
+          <Link
+              to={{ pathname: "/email-templates" }}
+              rel="noopener noreferrer"
+              className="block"
+            >
+          <Button className="h-24 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
             <div className="flex flex-col items-center gap-2">
               <MessageCircle className="h-6 w-6" />
               <span className="text-lg font-semibold">Email Templates</span>
             </div>
           </Button>
+          </Link>
         </div>
       </div>
 

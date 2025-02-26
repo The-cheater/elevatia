@@ -10,6 +10,7 @@ import CSE from "./pages/cse";
 import EceCourses from "./pages/ece";
 import Civil from "./pages/civil";
 import Dashboard from "./pages/dashboard";
+import EngineeringPage from "./pages/engineering";
 
 import './App.css';
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/engineering",
+        element: <EngineeringPage />,
       },
 
 

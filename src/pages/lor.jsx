@@ -1,18 +1,20 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, FileText } from 'lucide-react'; // Added FileText icon
 
 const RecommendationLetter = () => {
   return (
-    <div className="min-h-screen bg-gray-50 p-6 md:p-10 font-sans">
+    <div className="min-h-screen bg-gradient-to-r from-gray-50 to-gray-100 p-6 md:p-10 font-sans">
       {/* Header */}
-      <header className="max-w-4xl mx-auto mb-8 text-center">
-        <h1 className="text-4xl font-bold text-blue-600 mb-4">Elevatia</h1>
-        <h2 className="text-2xl font-semibold text-gray-800">LETTER OF RECOMMENDATION</h2>
+      <header className="max-w-4xl mx-auto mb-8 text-center animate-fade-in">
+        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4 animate-gradient">
+          Elevatia
+        </h1>
+        <h2 className="text-2xl font-semibold text-gray-800 animate-bounce">LETTER OF RECOMMENDATION</h2>
       </header>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-md space-y-8">
-        {/* Sender Info */}
-        <div className="text-right text-gray-600 space-y-1 text-base">
+      <div className="max-w-5xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-md space-y-8 animate-slide-up">
+        {/* Sender Info - Moved to the Left */}
+        <div className="text-left text-gray-600 space-y-1 text-base animate-fade-in">
           <div>[Your Name]</div>
           <div>[Your Position]</div>
           <div>[Your Organization]</div>
@@ -24,7 +26,7 @@ const RecommendationLetter = () => {
         </div>
 
         {/* Letter Body */}
-        <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+        <div className="space-y-6 text-gray-700 text-lg leading-relaxed animate-fade-in">
           <p className="text-xl">To Whom it May Concern,</p>
           
           <p>
@@ -59,71 +61,51 @@ const RecommendationLetter = () => {
           </div>
         </div>
 
-        {/* Templates Section */}
-        <div className="mt-12 pt-6 border-t border-gray-200">
-          <h3 className="text-lg font-semibold mb-4">MORE TEMPLATES</h3>
-          <ol className="list-decimal list-inside space-y-2 text-gray-600">
-            <li>Follow traditional formal letter writing rules</li>
-            <li>Start with a brief opening line praising the candidate</li>
-            <li>Outline the letter&apos;s intent</li>
-            <li>Detail why the candidate is a good fit for the job</li>
-            <li>Provide specific examples and anecdotes</li>
-            <li>Write a closing statement</li>
-            <li>Include a professional closing and signature</li>
-            <li>Proofread for grammar, spelling and formatting errors</li>
-          </ol>
+        {/* Animated "MORE TEMPLATES" Button with Icon */}
+        <div className="mt-12 pt-6 border-t border-gray-200 animate-fade-in">
+          <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-bold transform hover:scale-105 animate-pulse">
+            <FileText className="w-5 h-5" />
+            MORE TEMPLATES
+          </button>
         </div>
 
-        {/* Footer Sections */}
-        <div className="mt-12 pt-6 border-t border-gray-200">
-          <div className="grid md:grid-cols-3 gap-8 text-sm text-gray-600">
-            <div>
-              <h4 className="font-semibold mb-3">About Us</h4>
-              <ul className="space-y-2">
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Our Causes</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-3">Other Pages</h4>
-              <ul className="space-y-2">
-                <li>Privacy Policy</li>
-                <li>Terms of Use</li>
-                <li>Disclaimer</li>
-                <li>FAQ</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-3">Contact Info</h4>
-              <div className="space-y-2">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 flex-shrink-0" />
-                  <span>123 Horizon Road Madhya<br/>Pradesh - 452001, India</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  <span>+91 6794 4534</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5" />
-                  <span>upskill@elevatia.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Guidelines for Writing a Strong LOR */}
+        <div className="mt-8 space-y-6 text-gray-700 text-lg leading-relaxed animate-fade-in">
+          <h3 className="text-2xl font-bold text-gray-800">Guidelines for Writing a Strong Letter of Recommendation</h3>
+          <ul className="list-disc list-inside space-y-4">
+            <li>
+              <strong>Be Specific:</strong> Provide concrete examples of the candidate’s skills, achievements, and contributions. Avoid vague statements.
+            </li>
+            <li>
+              <strong>Highlight Key Qualities:</strong> Focus on qualities like leadership, teamwork, problem-solving, and adaptability that are relevant to the position.
+            </li>
+            <li>
+              <strong>Use Professional Tone:</strong> Maintain a formal and respectful tone throughout the letter.
+            </li>
+            <li>
+              <strong>Include Metrics:</strong> Where possible, quantify achievements (e.g., "increased sales by 20%" or "managed a team of 10 people").
+            </li>
+            <li>
+              <strong>Personalize the Letter:</strong> Tailor the letter to the specific role or organization the candidate is applying to.
+            </li>
+            <li>
+              <strong>Proofread:</strong> Ensure the letter is free of grammatical errors and typos.
+            </li>
+            <li>
+              <strong>Be Honest:</strong> Provide an honest assessment of the candidate’s abilities and potential.
+            </li>
+          </ul>
         </div>
       </div>
 
       {/* CTA Section */}
-      <div className="max-w-4xl mx-auto mt-8 text-center">
-        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold">
-          SIGN UP NOW
+      <div className="max-w-4xl mx-auto mt-8 text-center animate-fade-in">
+        <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-bold transform hover:scale-105 animate-pulse">
+          login
         </button>
-        <div className="mt-4 text-xl font-bold text-blue-600">ELEVATIA</div>
+        <div className="mt-4 text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient">
+          ELEVATIA
+        </div>
       </div>
     </div>
   );

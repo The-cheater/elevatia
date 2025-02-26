@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Laptop, Cpu, Zap, HardHat, Settings, BookOpen, Map, Sparkles } from "lucide-react";
-import { Laptop, Cpu, Zap, HardHat, Settings, BookOpen, Map, Sparkles } from "lucide-react";
 
 const EngineeringPage = () => {
   // Course data array

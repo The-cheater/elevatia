@@ -3,17 +3,14 @@ import {
   Sparkles, ClipboardList, ArrowRight, Flower2, Gem
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
 const EmailTemplates = () => {
-  const navigate = useNavigate();
   const templates = [
     { 
       icon: <HeartHandshake size={48} className="text-pink-600" />, 
       title: "REFERENCE REQUEST",
       color: "from-pink-100 to-pink-50",
-      decorator: <Flower2 className="text-pink-200" />,
-      route: "/lor"
+      decorator: <Flower2 className="text-pink-200" />
     },
     { 
       icon: <BotMessageSquare size={48} className="text-purple-600" />, 
@@ -34,12 +31,6 @@ const EmailTemplates = () => {
       decorator: <Sparkles className="text-fuchsia-300" />
     },
   ];
-
-  const handleTemplateClick = (template) => {
-    if (template.route) {
-      navigate(template.route);
-    }
-  };
 
   const floatingVariants = {
     float: {
@@ -93,7 +84,6 @@ const EmailTemplates = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
-              onClick={() => handleTemplateClick(template)}
               className={`bg-gradient-to-br ${template.color} rounded-2xl p-8 cursor-pointer group relative overflow-hidden border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300`}
               whileHover={{ y: -10, scale: 1.02 }}
             >

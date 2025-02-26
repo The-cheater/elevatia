@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Laptop, Cpu, Zap, HardHat, Settings } from 'lucide-react'; // Icons for each branch
+import { motion } from "framer-motion";
+import { Laptop, Cpu, Zap, HardHat, Settings } from "lucide-react"; // Icons for each branch
 
 const EngineeringPage = () => {
   // Animation variants
@@ -29,7 +29,9 @@ const EngineeringPage = () => {
         className="bg-pink-600 py-12 text-center"
       >
         <h1 className="text-4xl font-bold text-white">Engineering</h1>
-        <p className="mt-2 text-pink-100">Explore the world of innovation and creativity</p>
+        <p className="mt-2 text-pink-100">
+          Explore the world of innovation and creativity
+        </p>
       </motion.div>
 
       {/* Main Content */}
@@ -45,19 +47,24 @@ const EngineeringPage = () => {
             variants={itemVariants}
             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
           >
-            <Laptop className="w-12 h-12 text-pink-600 mx-auto" />
-            <h2 className="text-xl font-semibold text-pink-600 mt-4 text-center">
-              Computer Science
-            </h2>
+            <a href="/cse" className="block">
+              <Laptop className="w-12 h-12 text-pink-600 mx-auto" />
+              <h2 className="text-xl font-semibold text-pink-600 mt-4 text-center">
+                Computer Science
+              </h2>
+            </a>
             <p className="mt-2 text-gray-600 text-center">
-              Dive into the world of coding, algorithms, and software development.
+              Dive into the world of coding, algorithms, and software
+              development.
             </p>
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-              alt="Computer Science"
-              className="mt-4 rounded-lg w-full h-48 object-cover"
-            />
+            <a href="/cse">
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                alt="Computer Science"
+                className="mt-4 rounded-lg w-full h-48 object-cover"
+              />
+            </a>
           </motion.div>
 
           {/* Electronics */}
@@ -65,19 +72,23 @@ const EngineeringPage = () => {
             variants={itemVariants}
             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
           >
-            <Cpu className="w-12 h-12 text-pink-600 mx-auto" />
-            <h2 className="text-xl font-semibold text-pink-600 mt-4 text-center">
-              Electronics
-            </h2>
+            <a href="/ece" className="block">
+              <Cpu className="w-12 h-12 text-pink-600 mx-auto" />
+              <h2 className="text-xl font-semibold text-pink-600 mt-4 text-center">
+                Electronics
+              </h2>
+            </a>
             <p className="mt-2 text-gray-600 text-center">
               Explore circuits, microcontrollers, and embedded systems.
             </p>
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-              alt="Electronics"
-              className="mt-4 rounded-lg w-full h-48 object-cover"
-            />
+            <a href="/ece">
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                alt="Electronics"
+                className="mt-4 rounded-lg w-full h-48 object-cover"
+              />
+            </a>
           </motion.div>
 
           {/* Electrical */}
@@ -105,19 +116,23 @@ const EngineeringPage = () => {
             variants={itemVariants}
             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
           >
-            <HardHat className="w-12 h-12 text-pink-600 mx-auto" />
-            <h2 className="text-xl font-semibold text-pink-600 mt-4 text-center">
-              Civil
-            </h2>
+            <a href="/civil" className="block">
+              <HardHat className="w-12 h-12 text-pink-600 mx-auto" />
+              <h2 className="text-xl font-semibold text-pink-600 mt-4 text-center">
+                Civil
+              </h2>
+            </a>
             <p className="mt-2 text-gray-600 text-center">
               Build the future with infrastructure and construction.
             </p>
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-              alt="Civil"
-              className="mt-4 rounded-lg w-full h-48 object-cover"
-            />
+            <a href="/civil">
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                alt="Civil"
+                className="mt-4 rounded-lg w-full h-48 object-cover"
+              />
+            </a>
           </motion.div>
 
           {/* Mechanical */}

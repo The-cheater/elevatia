@@ -7,7 +7,7 @@ import BookFinder from "./pages/bookfinder";
 import RecommendationLetter from "./pages/lor";
 import EmailTemplates from "./pages/emailtemplates";
 import CSE from "./pages/cse";
-import Electronics from "./pages/ece";
+import EceCourses from "./pages/ece";
 import Civil from "./pages/civil";
 import Dashboard from "./pages/dashboard";
 import EngineeringPage from "./pages/engineering";
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/ece",
-        element: <Electronics />,
+        element: <EceCourses />,
       },
       {
         path: "/civil",

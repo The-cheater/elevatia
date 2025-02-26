@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Database, Cloud, BrainCircuit, Network, Smartphone, Lock, Ai, Bug, Webhook } from "lucide-react";
+import { Code, Database, Cloud, BrainCircuit, Network, Smartphone, Lock, Bug, Webhook } from "lucide-react";
 
 const CSERoadmapPage = () => {
   // Course buttons data
@@ -56,7 +56,6 @@ const CSERoadmapPage = () => {
     {
       id: 8,
       title: "Machine Learning",
-      icon: <Ai className="w-8 h-8" />,
       color: "bg-green-500",
       hoverColor: "hover:bg-green-600",
     },

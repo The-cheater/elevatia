@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Laptop, Cpu, Zap, HardHat, Settings, BookOpen, Map, Sparkles } from "lucide-react";
+import { Laptop, Cpu, Zap, HardHat, Settings } from "lucide-react"; // Icons for each branch
 
 const EngineeringPage = () => {
   // Course data array
@@ -67,76 +67,30 @@ const EngineeringPage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
         delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 40, opacity: 0, scale: 0.95 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      scale: 1,
-      transition: { 
-        type: "spring", 
-        stiffness: 120,
-        damping: 10
-      }
-    },
-  };
-
-  const buttonVariants = {
-    hover: { 
-      scale: 1.05, 
-      boxShadow: "0px 5px 15px rgba(0,0,0,0.1)",
-    },
-    tap: { scale: 0.95 }
-  };
-
-  const iconFloat = {
-    float: {
-      y: [0, -15, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
-    <div className="min-h-screen bg-pink-50 relative overflow-hidden">
-      {/* Animated background elements */}
-      <motion.div
-        className="absolute top-20 -left-20 opacity-10"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-      >
-        <Sparkles size={400} className="text-pink-300" />
-      </motion.div>
-
+    <div className="min-h-screen bg-pink-50">
       {/* Header Section */}
       <motion.div
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
-        className="bg-pink-600 py-12 text-center relative overflow-hidden"
+        transition={{ duration: 0.8 }}
+        className="bg-pink-600 py-12 text-center"
       >
-        <motion.h1 
-          className="text-4xl font-bold text-white"
-        >
-          Engineering
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="mt-2 text-pink-100"
-        >
+        <h1 className="text-4xl font-bold text-white">Engineering</h1>
+        <p className="mt-2 text-pink-100">
           Explore the world of innovation and creativity
-        </motion.p>
+        </p>
       </motion.div>
 
       {/* Main Content */}
@@ -224,51 +178,27 @@ const EngineeringPage = () => {
                 </motion.a>
               </motion.div>
 
-              <a href={course.links.roadmap}>
-                <motion.div 
-                  className="mt-4 rounded-lg overflow-hidden relative"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <motion.img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-pink-600/20 to-transparent"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                  />
-                </motion.div>
-              </a>
-            </motion.div>
-          ))}
+          {/* Mechanical */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <Settings className="w-12 h-12 text-pink-600 mx-auto" />
+            <h2 className="text-xl font-semibold text-pink-600 mt-4 text-center">
+              Mechanical
+            </h2>
+            <p className="mt-2 text-gray-600 text-center">
+              Design and innovate with machines and mechanics.
+            </p>
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              alt="Mechanical"
+              className="mt-4 rounded-lg w-full h-48 object-cover"
+            />
+          </motion.div>
         </div>
       </motion.div>
-
-      {/* Floating particles */}
-      {[...Array(10)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute bg-pink-300 rounded-full"
-          style={{
-            width: Math.random() * 10 + 5,
-            height: Math.random() * 10 + 5,
-            top: Math.random() * 100 + "%",
-            left: Math.random() * 100 + "%",
-          }}
-          animate={{
-            y: [0, -100, 0],
-            x: [0, Math.random() * 100 - 50, 0],
-            opacity: [0.5, 1, 0],
-          }}
-          transition={{
-            duration: Math.random() * 5 + 5,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-      ))}
     </div>
   );
 };

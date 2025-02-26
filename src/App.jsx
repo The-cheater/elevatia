@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <RecommendationLetter />,
       },
       {
-        path: "/emailtemplates",
+        path: "/email-templates",
         element: <EmailTemplates />,
       },
       {

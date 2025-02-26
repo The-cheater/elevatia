@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import CountUp from "react-countup";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ChatIcon = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,7 +99,9 @@ const ChatIcon = () => {
               >
                 <div
                   className={`inline-block p-2 rounded-lg ${
-                    msg.isBot ? "bg-pink-50 text-gray-800" : "bg-pink-600 text-white"
+                    msg.isBot
+                      ? "bg-pink-50 text-gray-800"
+                      : "bg-pink-600 text-white"
                   }`}
                 >
                   {msg.text}
@@ -255,9 +258,7 @@ function Landing() {
             </Select>
           </div>
 
-          <Button
-            className="w-full md:w-auto px-8 py-6 text-lg bg-white text-pink-600 hover:bg-pink-50"
-          >
+          <Button className="w-full md:w-auto px-8 py-6 text-lg bg-white text-pink-600 hover:bg-pink-50">
             Explore Now
           </Button>
         </div>
@@ -314,23 +315,27 @@ function Landing() {
           CHOOSE AREA OF INTEREST
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {["Engineering", "Design", "Business", "Marketing"].map((interest) => (
-            <Button
-              key={interest}
-              variant="outline"
-              className="h-24 text-pink-700 border-pink-200 hover:bg-pink-50 hover:-translate-y-2 transition-transform"
-            >
-              {interest}
-            </Button>
+          {[
+            { name: "Engineering", path: "/engineering" },
+            { name: "Design", path: "/design" },
+            { name: "Business", path: "/business" },
+            { name: "Marketing", path: "/marketing" },
+          ].map(({ name, path }) => (
+            <Link key={name} to={path} className="w-full">
+              <Button
+                variant="outline"
+                className="h-24 w-full text-pink-700 border-pink-200 hover:bg-pink-50 hover:-translate-y-2 transition-transform"
+              >
+                {name}
+              </Button>
+            </Link>
           ))}
         </div>
 
         {/* New Buttons Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           {/* Resume Builder Button */}
-          <Button
-            className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl"
-          >
+          <Button className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
             <div className="flex flex-col items-center gap-2">
               <BookOpenText className="h-6 w-6" />
               <span className="text-lg font-semibold">Resume Builder</span>
@@ -338,9 +343,7 @@ function Landing() {
           </Button>
 
           {/* ATS Score Scanner Button */}
-          <Button
-            className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl"
-          >
+          <Button className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
             <div className="flex flex-col items-center gap-2">
               <Shield className="h-6 w-6" />
               <span className="text-lg font-semibold">ATS Score Scanner</span>
@@ -348,9 +351,7 @@ function Landing() {
           </Button>
 
           {/* Email Templates Button */}
-          <Button
-            className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl"
-          >
+          <Button className="h-24 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 transition-all hover:-translate-y-2 shadow-lg hover:shadow-xl">
             <div className="flex flex-col items-center gap-2">
               <MessageCircle className="h-6 w-6" />
               <span className="text-lg font-semibold">Email Templates</span>
@@ -377,7 +378,10 @@ function Landing() {
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center gap-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-pink-600 stroke-pink-600" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-pink-600 stroke-pink-600"
+                  />
                 ))}
               </div>
               <p className="text-lg text-pink-800">
@@ -401,7 +405,10 @@ function Landing() {
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center gap-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-pink-600 stroke-pink-600" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-pink-600 stroke-pink-600"
+                  />
                 ))}
               </div>
               <p className="text-lg text-pink-800">
@@ -426,13 +433,19 @@ function Landing() {
               <div className="text-4xl font-bold text-pink-600">4.9/5</div>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-pink-600 stroke-pink-600" />
+                  <Star
+                    key={i}
+                    className="w-6 h-6 fill-pink-600 stroke-pink-600"
+                  />
                 ))}
               </div>
               <p className="text-center text-pink-700">
                 Average rating from 2,500+ reviews across platforms
               </p>
-              <Button variant="outline" className="mt-4 text-pink-600 border-pink-200 hover:bg-pink-100">
+              <Button
+                variant="outline"
+                className="mt-4 text-pink-600 border-pink-200 hover:bg-pink-100"
+              >
                 View All Reviews
               </Button>
             </CardContent>

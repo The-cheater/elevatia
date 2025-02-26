@@ -11,7 +11,7 @@ import Electronics from "./pages/ece";
 import Civil from "./pages/civil";
 import Dashboard from "./pages/dashboard";
 import EngineeringPage from "./pages/engineering";
-import DSARoadmapPage from "./pages/roadmap";
+import CSERoadmapPage from "./pages/roadmap";
 
 import './App.css';
 
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/roadmap",
-        element: <DSARoadmapPage />,
+        element: <CSERoadmapPage />,
       },
 
 

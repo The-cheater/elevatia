@@ -1,36 +1,78 @@
 import { motion } from "framer-motion";
-import { Code, BookOpen, Layers, TrendingUp, Rocket, Sparkles, ArrowRight } from "lucide-react";
+import { Code, Database, Cloud, BrainCircuit, Network, Smartphone, Lock, Ai, Bug, Webhook } from "lucide-react";
 
-const DSARoadmapPage = () => {
-  // Roadmap data
-  const roadmapSteps = [
+const CSERoadmapPage = () => {
+  // Course buttons data
+  const courses = [
     {
       id: 1,
-      title: "Programming Basics",
-      description: "Master the fundamentals of programming in C/C++ or Python.",
-      icon: <Code className="w-8 h-8 text-pink-600" />,
-      image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6",
+      title: "Data Structures & Algorithms",
+      icon: <Code className="w-8 h-8" />,
+      color: "bg-pink-500",
+      hoverColor: "hover:bg-pink-600",
     },
     {
       id: 2,
-      title: "Data Structures",
-      description: "Learn arrays, linked lists, stacks, queues, and trees.",
-      icon: <Layers className="w-8 h-8 text-pink-600" />,
-      image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+      title: "Database Management",
+      icon: <Database className="w-8 h-8" />,
+      color: "bg-purple-500",
+      hoverColor: "hover:bg-purple-600",
     },
     {
       id: 3,
-      title: "Algorithms",
-      description: "Understand sorting, searching, and dynamic programming.",
-      icon: <TrendingUp className="w-8 h-8 text-pink-600" />,
-      image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea",
+      title: "Cloud Computing",
+      icon: <Cloud className="w-8 h-8" />,
+      color: "bg-blue-500",
+      hoverColor: "hover:bg-blue-600",
     },
     {
       id: 4,
-      title: "Problem Solving",
-      description: "Practice on platforms like LeetCode and Codeforces.",
-      icon: <Rocket className="w-8 h-8 text-pink-600" />,
-      image: "https://images.unsplash.com/photo-1534665482403-a909d0d97c67",
+      title: "Artificial Intelligence",
+      icon: <BrainCircuit className="w-8 h-8" />,
+      color: "bg-teal-500",
+      hoverColor: "hover:bg-teal-600",
+    },
+    {
+      id: 5,
+      title: "Networking",
+      icon: <Network className="w-8 h-8" />,
+      color: "bg-indigo-500",
+      hoverColor: "hover:bg-indigo-600",
+    },
+    {
+      id: 6,
+      title: "Mobile Development",
+      icon: <Smartphone className="w-8 h-8" />,
+      color: "bg-orange-500",
+      hoverColor: "hover:bg-orange-600",
+    },
+    {
+      id: 7,
+      title: "Cybersecurity",
+      icon: <Lock className="w-8 h-8" />,
+      color: "bg-red-500",
+      hoverColor: "hover:bg-red-600",
+    },
+    {
+      id: 8,
+      title: "Machine Learning",
+      icon: <Ai className="w-8 h-8" />,
+      color: "bg-green-500",
+      hoverColor: "hover:bg-green-600",
+    },
+    {
+      id: 9,
+      title: "Software Testing",
+      icon: <Bug className="w-8 h-8" />,
+      color: "bg-yellow-500",
+      hoverColor: "hover:bg-yellow-600",
+    },
+    {
+      id: 10,
+      title: "Web Development",
+      icon: <Webhook className="w-8 h-8" />,
+      color: "bg-pink-500",
+      hoverColor: "hover:bg-pink-600",
     },
   ];
 
@@ -40,7 +82,7 @@ const DSARoadmapPage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
         delayChildren: 0.2,
       },
     },
@@ -55,16 +97,9 @@ const DSARoadmapPage = () => {
     },
   };
 
-  const iconFloat = {
-    float: {
-      y: [0, -15, 0],
-      rotate: [0, -5, 5, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
+  const buttonHover = {
+    hover: { scale: 1.05, y: -5 },
+    tap: { scale: 0.95 },
   };
 
   return (
@@ -75,7 +110,7 @@ const DSARoadmapPage = () => {
         animate={{ rotate: 360 }}
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       >
-        <Sparkles size={400} className="text-pink-200" />
+        <Code size={400} className="text-pink-200" />
       </motion.div>
 
       {/* Header Section */}
@@ -89,7 +124,7 @@ const DSARoadmapPage = () => {
           className="text-4xl font-bold text-white"
           whileHover={{ scale: 1.05 }}
         >
-          DSA Roadmap
+          CSE Roadmap
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -97,92 +132,37 @@ const DSARoadmapPage = () => {
           transition={{ delay: 0.5 }}
           className="mt-2 text-pink-100"
         >
-          Master Data Structures and Algorithms step by step
+          Explore the key areas of Computer Science and Engineering
         </motion.p>
       </motion.div>
 
-      {/* Roadmap Content */}
+      {/* Buttons Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-6xl mx-auto px-6 py-12"
+        className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        <div className="space-y-8">
-          {roadmapSteps.map((step, index) => (
-            <motion.div
-              key={step.id}
-              variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow group relative overflow-hidden"
-              whileHover={{ y: -5 }}
+        {courses.map((course) => (
+          <motion.div
+            key={course.id}
+            variants={itemVariants}
+            whileHover="hover"
+            whileTap="tap"
+          >
+            <motion.button
+              variants={buttonHover}
+              className={`w-full ${course.color} ${course.hoverColor} text-white p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 transition-colors`}
             >
-              {/* Shine effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100"
-                initial={{ x: "-100%" }}
-                animate={{
-                  x: "100%",
-                  transition: {
-                    duration: 1.2,
-                    repeat: Infinity,
-                  },
-                }}
-              />
-
-              {/* Image Section */}
-              <motion.div
-                className="relative overflow-hidden rounded-l-xl"
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.img
-                  src={step.image}
-                  alt={step.title}
-                  className="w-full h-48 md:h-full object-cover"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-pink-600/20 to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                />
-              </motion.div>
-
-              {/* Content Section */}
-              <div className="p-6">
-                <motion.div
-                  variants={iconFloat}
-                  animate="float"
-                  className="w-12 h-12 bg-pink-50 rounded-full flex items-center justify-center mb-4"
-                >
-                  {step.icon}
-                </motion.div>
-
-                <motion.h2
-                  className="text-2xl font-bold text-pink-600"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  {step.title}
-                </motion.h2>
-                <motion.p
-                  className="mt-2 text-gray-600"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  {step.description}
-                </motion.p>
-
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-4 px-6 py-2 bg-pink-50 text-pink-600 rounded-full flex items-center gap-2 hover:bg-pink-100 transition-colors"
-                >
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+              <div className="p-4 bg-white/20 rounded-full">
+                {course.icon}
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <h2 className="text-xl font-semibold text-center">
+                {course.title}
+              </h2>
+            </motion.button>
+          </motion.div>
+        ))}
       </motion.div>
 
       {/* Floating particles */}
@@ -212,4 +192,4 @@ const DSARoadmapPage = () => {
   );
 };
 
-export default DSARoadmapPage;
+export default CSERoadmapPage;

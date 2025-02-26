@@ -33,7 +33,7 @@ const ChatIcon = () => {
   const query = async (data) => {
     try {
       const response = await fetch(
-        "https://flowiseai-railway-production-4191.up.railway.app/api/v1/prediction/07e755ab-69b3-4a76-8af2-a201bc08712a",
+        "https://flowiseai-1-flzp.onrender.com/api/v1/prediction/e540751c-ac63-4f2f-b032-ae2baaa37f22",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

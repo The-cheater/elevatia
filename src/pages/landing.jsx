@@ -61,6 +61,7 @@ const ChatIcon = () => {
       const response = await query({ question: inputMessage });
       const botMessage = { text: response.text, isBot: true };
       setMessages((prev) => [...prev, botMessage]);
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       const errorMessage = {
         text: "Sorry, something went wrong. Please try again.",
@@ -251,8 +252,8 @@ function Landing() {
                 <SelectValue placeholder="Select your highest qualification" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="bachelors">Bachelor's</SelectItem>
-                <SelectItem value="masters">Master's</SelectItem>
+                <SelectItem value="bachelors">Bachelor</SelectItem>
+                <SelectItem value="masters">Master</SelectItem>
                 <SelectItem value="diploma">Diploma</SelectItem>
               </SelectContent>
             </Select>
@@ -411,8 +412,8 @@ function Landing() {
                 ))}
               </div>
               <p className="text-lg text-pink-800">
-                "The courses here completely changed my career trajectory. The
-                hands-on projects were invaluable."
+                The courses here completely changed my career trajectory. The
+                hands-on projects were invaluable.
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">
@@ -438,8 +439,8 @@ function Landing() {
                 ))}
               </div>
               <p className="text-lg text-pink-800">
-                "Best learning platform for upskilling. The mentorship program
-                is exceptional!"
+                Best learning platform for upskilling. The mentorship program
+                is exceptional!
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">

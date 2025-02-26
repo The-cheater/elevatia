@@ -2,14 +2,12 @@ import {
     Building,
     Youtube,
     Users,
-    Link2,
     Home,
     Shield,
     MapPin,
     Phone,
     Mail,
     Mountain,
-    Droplet,
     Hammer
   } from 'lucide-react';
   

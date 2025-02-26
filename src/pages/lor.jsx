@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, FileText } from 'lucide-react'; // Added FileText icon
+import { FileText } from 'lucide-react'; // Added FileText icon
 
 const RecommendationLetter = () => {
   return (

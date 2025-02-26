@@ -164,6 +164,7 @@ const Dashboard = () => {
 };
 
 // Components
+// eslint-disable-next-line react/prop-types
 const CourseCard = ({ icon, title, progress }) => (
   <motion.div 
     whileHover={{ scale: 1.02 }}
@@ -186,6 +187,7 @@ const CourseCard = ({ icon, title, progress }) => (
   </motion.div>
 );
 
+// eslint-disable-next-line react/prop-types
 const EnrolledCourse = ({ title, code, time }) => (
   <motion.div 
     whileHover={{ scale: 1.02 }}
@@ -201,6 +203,7 @@ const EnrolledCourse = ({ title, code, time }) => (
   </motion.div>
 );
 
+// eslint-disable-next-line react/prop-types
 const CircularProgress = ({ percentage }) => (
   <svg className="w-full h-full" viewBox="0 0 100 100">
     <circle 

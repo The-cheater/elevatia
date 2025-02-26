@@ -4,8 +4,7 @@ import {
   Link2,
   FileText
 } from 'lucide-react';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CSE() {
   const courseSections = [

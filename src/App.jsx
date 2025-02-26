@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         element: <EngineeringPage />,
       },
       {
-        path: "/dsa",
+        path: "/roadmap",
         element: <DSARoadmapPage />,
       },
 

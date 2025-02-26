@@ -11,8 +11,8 @@ const EngineeringPage = () => {
       description: "Dive into the world of coding, algorithms, and software development.",
       image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
       links: {
-        roadmap: "/cse/roadmap",
-        courses: "/cse/courses"
+        roadmap: "/cse",
+        courses: "/cse"
       }
     },
     {
@@ -22,8 +22,8 @@ const EngineeringPage = () => {
       description: "Explore circuits, microcontrollers, and embedded systems.",
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
       links: {
-        roadmap: "/ece/roadmap",
-        courses: "/ece/courses"
+        roadmap: "/ece",
+        courses: "/ece"
       }
     },
     {
@@ -33,8 +33,8 @@ const EngineeringPage = () => {
       description: "Learn about power systems, motors, and renewable energy.",
       image: "https://images.unsplash.com/photo-1509391366360-2e959784a276",
       links: {
-        roadmap: "/electrical/roadmap",
-        courses: "/electrical/courses"
+        roadmap: "/electrical",
+        courses: "/electrical"
       }
     },
     {
@@ -44,8 +44,8 @@ const EngineeringPage = () => {
       description: "Build the future with infrastructure and construction.",
       image: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8",
       links: {
-        roadmap: "/civil/roadmap",
-        courses: "/civil/courses"
+        roadmap: "/civil",
+        courses: "/civil"
       }
     },
     {
@@ -55,8 +55,8 @@ const EngineeringPage = () => {
       description: "Design and innovate with machines and mechanics.",
       image: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa",
       links: {
-        roadmap: "/mechanical/roadmap",
-        courses: "/mechanical/courses"
+        roadmap: "/mechanical",
+        courses: "/mechanical"
       }
     }
   ];
@@ -201,16 +201,7 @@ const EngineeringPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <motion.a
-                  href={course.links.roadmap}
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="flex items-center gap-2 px-4 py-2 bg-pink-500 text-white rounded-lg relative overflow-hidden"
-                >
-                  <Map size={18} />
-                  Roadmap
-                </motion.a>
+                
 
                 <motion.a
                   href={course.links.courses}

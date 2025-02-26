@@ -61,7 +61,6 @@ const ChatIcon = () => {
       const response = await query({ question: inputMessage });
       const botMessage = { text: response.text, isBot: true };
       setMessages((prev) => [...prev, botMessage]);
-    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       const errorMessage = {
         text: "Sorry, something went wrong. Please try again.",
@@ -100,7 +99,9 @@ const ChatIcon = () => {
               >
                 <div
                   className={`inline-block p-2 rounded-lg ${
-                    msg.isBot ? "bg-pink-50 text-gray-800" : "bg-pink-600 text-white"
+                    msg.isBot
+                      ? "bg-pink-50 text-gray-800"
+                      : "bg-pink-600 text-white"
                   }`}
                 >
                   {msg.text}
@@ -250,16 +251,14 @@ function Landing() {
                 <SelectValue placeholder="Select your highest qualification" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="bachelors">Bachelor</SelectItem>
-                <SelectItem value="masters">Master</SelectItem>
+                <SelectItem value="bachelors">Bachelor's</SelectItem>
+                <SelectItem value="masters">Master's</SelectItem>
                 <SelectItem value="diploma">Diploma</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
-          <Button
-            className="w-full md:w-auto px-8 py-6 text-lg bg-white text-pink-600 hover:bg-pink-50"
-          >
+          <Button className="w-full md:w-auto px-8 py-6 text-lg bg-white text-pink-600 hover:bg-pink-50">
             Explore Now
           </Button>
         </div>
@@ -316,14 +315,20 @@ function Landing() {
           CHOOSE AREA OF INTEREST
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {["Engineering", "Design", "Business", "Marketing"].map((interest) => (
-            <Button
-              key={interest}
-              variant="outline"
-              className="h-24 text-pink-700 border-pink-200 hover:bg-pink-50 hover:-translate-y-2 transition-transform"
-            >
-              {interest}
-            </Button>
+          {[
+            { name: "Engineering", path: "/engineering" },
+            { name: "Design", path: "/design" },
+            { name: "Business", path: "/business" },
+            { name: "Marketing", path: "/marketing" },
+          ].map(({ name, path }) => (
+            <Link key={name} to={path} className="w-full">
+              <Button
+                variant="outline"
+                className="h-24 w-full text-pink-700 border-pink-200 hover:bg-pink-50 hover:-translate-y-2 transition-transform"
+              >
+                {name}
+              </Button>
+            </Link>
           ))}
         </div>
 
@@ -399,12 +404,15 @@ function Landing() {
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center gap-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-pink-600 stroke-pink-600" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-pink-600 stroke-pink-600"
+                  />
                 ))}
               </div>
               <p className="text-lg text-pink-800">
-                The courses here completely changed my career trajectory. The
-                hands-on projects were invaluable.
+                "The courses here completely changed my career trajectory. The
+                hands-on projects were invaluable."
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">
@@ -423,12 +431,15 @@ function Landing() {
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center gap-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-pink-600 stroke-pink-600" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-pink-600 stroke-pink-600"
+                  />
                 ))}
               </div>
               <p className="text-lg text-pink-800">
-                Best learning platform for upskilling. The mentorship program
-                is exceptional!
+                "Best learning platform for upskilling. The mentorship program
+                is exceptional!"
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">
@@ -448,13 +459,19 @@ function Landing() {
               <div className="text-4xl font-bold text-pink-600">4.9/5</div>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-pink-600 stroke-pink-600" />
+                  <Star
+                    key={i}
+                    className="w-6 h-6 fill-pink-600 stroke-pink-600"
+                  />
                 ))}
               </div>
               <p className="text-center text-pink-700">
                 Average rating from 2,500+ reviews across platforms
               </p>
-              <Button variant="outline" className="mt-4 text-pink-600 border-pink-200 hover:bg-pink-100">
+              <Button
+                variant="outline"
+                className="mt-4 text-pink-600 border-pink-200 hover:bg-pink-100"
+              >
                 View All Reviews
               </Button>
             </CardContent>

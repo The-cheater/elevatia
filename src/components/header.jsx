@@ -55,7 +55,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed flex w-full top-0 z-50 px-6 py-4 bg-gradient-to-r from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 backdrop-blur-lg"
+      className="flex w-full top-0 z-50 px-6 py-4 bg-gradient-to-r from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 backdrop-blur-lg"
       initial={false}
       animate={isScrolled ? "scrolled" : "normal"}
       variants={headerVariants}

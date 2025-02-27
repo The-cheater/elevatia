@@ -33,7 +33,7 @@ const ChatIcon = () => {
   const query = async (data) => {
     try {
       const response = await fetch(
-        "https://flowiseai-1-flzp.onrender.com/api/v1/prediction/e540751c-ac63-4f2f-b032-ae2baaa37f22",
+        "http://localhost:3000/api/v1/prediction/2edc4b2b-f55a-4638-a313-c1a793e3d91e",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -110,7 +110,7 @@ const ChatIcon = () => {
             ))}
             {isLoading && (
               <div className="text-center text-pink-600">
-                Assistant is typing...
+                Typing...
               </div>
             )}
             <div ref={messagesEndRef} />
@@ -479,14 +479,15 @@ function Landing() {
         </div>
       </section>
       {/* Search Section */}
-      <div className="container px-4 md:px-6 py-12 space-y-6">
-        <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
-          <Input
-            placeholder="Search for courses or resources"
-            className="flex-1"
-          />
-          <Button className="bg-pink-600 hover:bg-pink-700 text-white">
-            Find Your Books
+      <div className="container px-4 md:px-6 py-12 space-y-6 text-center">
+        <div className="flex justify-center">
+          <Button 
+            asChild
+            className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-6 text-lg"
+          >
+            <Link to="/book-finder">
+              Find Your Books
+            </Link>
           </Button>
         </div>
       </div>

@@ -99,15 +99,8 @@ const RecommendationLetter = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="max-w-4xl mx-auto mt-8 text-center animate-fade-in">
-        <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-bold transform hover:scale-105 animate-pulse">
-          login
-        </button>
-        <div className="mt-4 text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient">
-          ELEVATIA
-        </div>
+     
       </div>
-    </div>
   );
 };
 

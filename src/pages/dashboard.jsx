@@ -1,10 +1,23 @@
-import { Bell, Menu, ChevronRight, BookText, Database, Terminal, GraduationCap, Clock, Calendar } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { Bell, Menu, ChevronRight, BookText, Clock, Calendar } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button"; // Import shadcn Button
+import Heatmap from "@/components/ui/heatmap"; // Ensure this path is correct
 
 const Dashboard = () => {
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 p-4 md:p-8">
+    <div className="min-h-screen bg-cream-50 p-4 md:p-8"> {/* Cream background */}
       {/* Header Section */}
       <motion.header 
         initial={{ opacity: 0, y: -20 }}
@@ -13,27 +26,33 @@ const Dashboard = () => {
         className="flex items-center justify-between mb-8"
       >
         <div className="flex items-center gap-4">
-          <button className="md:hidden p-2 rounded-full hover:bg-pink-600/10 transition-colors">
+          <Button variant="ghost" className="md:hidden p-2 rounded-lg hover:bg-gradient-to-r from-pink-400 to-purple-400 transition-colors">
             <Menu size={24} className="text-white" />
-          </button>
+          </Button>
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
+            <h1 className="text-2xl md:text-3xl font-bold text-pink-800">
               Welcome back, John! 👋
             </h1>
-            <p className="text-pink-100 text-sm mt-1 flex items-center gap-1">
+            <p className="text-pink-600 text-sm mt-1 flex items-center gap-1">
               <Calendar size={16} />
-              <span>Feb 22, 2025</span>
+              <span>
+                {currentDate.toLocaleDateString('en-US', { 
+                  month: 'short', 
+                  day: 'numeric', 
+                  year: 'numeric' 
+                })}
+              </span>
             </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button className="p-2 rounded-full hover:bg-pink-600/10 relative">
+          <Button variant="ghost" className="p-2 rounded-lg hover:bg-gradient-to-r from-pink-400 to-purple-400 relative transition-colors">
             <Bell size={24} className="text-white" />
             <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
-          </button>
-          <div className="w-10 h-10 bg-gradient-to-br from-pink-600 to-purple-600 rounded-full flex items-center justify-center text-white">
+          </Button>
+          <Button className="w-10 h-10 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white border border-pink-200 shadow-sm">
             JD
-          </div>
+          </Button>
         </div>
       </motion.header>
 
@@ -46,15 +65,15 @@ const Dashboard = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20 shadow-lg"
+            className="bg-white p-6 rounded-2xl shadow-lg"
           >
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold flex items-center gap-2 bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
-                <BookText className="text-white" /> Recommended Courses
+              <h2 className="text-lg font-semibold text-pink-800">
+                Recommended Courses
               </h2>
-              <button className="flex items-center text-white hover:text-pink-200 transition-colors">
+              <Button className="bg-gradient-to-r from-pink-400 to-purple-400 text-white hover:from-pink-500 hover:to-purple-500 transition-colors">
                 See all <ChevronRight size={20} />
-              </button>
+              </Button>
             </div>
             <Carousel>
               <CarouselContent>
@@ -62,51 +81,37 @@ const Dashboard = () => {
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                     <motion.div 
                       whileHover={{ scale: 1.02 }}
-                      className="p-4 bg-gradient-to-br from-pink-600/10 to-purple-600/10 rounded-xl flex items-center gap-4 border border-white/20 shadow-sm"
+                      className="p-4 bg-cream-100 rounded-xl flex items-center gap-4 border border-pink-100 shadow-sm"
                     >
-                      <div className="w-12 h-12 bg-gradient-to-br from-pink-600/20 to-purple-600/20 rounded-lg flex items-center justify-center">
-                        <GraduationCap className="text-white" />
+                      <div className="w-12 h-12 bg-pink-50 rounded-lg flex items-center justify-center">
+                        <BookText className="text-pink-600" />
                       </div>
                       <div>
-                        <h3 className="font-medium text-white">{course.title}</h3>
-                        <p className="text-sm text-pink-100">{course.description}</p>
+                        <h3 className="font-medium text-pink-800">{course.title}</h3>
+                        <p className="text-sm text-pink-600">{course.description}</p>
                       </div>
                     </motion.div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="text-white hover:text-pink-200" />
-              <CarouselNext className="text-white hover:text-pink-200" />
+              <CarouselPrevious className="bg-gradient-to-r from-pink-400 to-purple-400 text-white hover:from-pink-500 hover:to-purple-500" />
+              <CarouselNext className="bg-gradient-to-r from-pink-400 to-purple-400 text-white hover:from-pink-500 hover:to-purple-500" />
             </Carousel>
           </motion.section>
 
-          {/* Your Courses Section */}
+          {/* Heatmap Section */}
           <motion.section 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20 shadow-lg"
+            className="bg-white p-6 rounded-2xl shadow-lg"
           >
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold flex items-center gap-2 bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
-                <Terminal className="text-white" /> Your Courses
+              <h2 className="text-lg font-semibold text-pink-800">
+                Login Activity
               </h2>
-              <button className="flex items-center text-white hover:text-pink-200 transition-colors">
-                See more <ChevronRight size={20} />
-              </button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <CourseCard 
-                icon={<Terminal className="text-white" />}
-                title="Object Oriented Programming"
-                progress={75}
-              />
-              <CourseCard 
-                icon={<Database className="text-white" />}
-                title="Database Systems"
-                progress={60}
-              />
-            </div>
+            <Heatmap />
           </motion.section>
         </div>
 
@@ -117,15 +122,15 @@ const Dashboard = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20 shadow-lg"
+            className="bg-white p-6 rounded-2xl shadow-lg"
           >
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold flex items-center gap-2 bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
-                <Clock className="text-white" /> Previously Viewed
+              <h2 className="text-lg font-semibold text-pink-800">
+                Previously Viewed
               </h2>
-              <button className="flex items-center text-white hover:text-pink-200 transition-colors">
+              <Button className="bg-gradient-to-r from-pink-400 to-purple-400 text-white hover:from-pink-500 hover:to-purple-500 transition-colors">
                 See all <ChevronRight size={20} />
-              </button>
+              </Button>
             </div>
             <div className="space-y-4">
               {previouslyViewedCourses.map((course, index) => (
@@ -144,16 +149,16 @@ const Dashboard = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-gradient-to-br from-pink-600 to-purple-600 p-6 rounded-2xl text-white"
+            className="bg-white p-6 rounded-2xl shadow-lg"
           >
-            <h3 className="font-semibold mb-4">Semester Progress</h3>
+            <h3 className="font-semibold mb-4 text-pink-800">Semester Progress</h3>
             <div className="flex items-center gap-4">
               <div className="relative w-20 h-20">
                 <CircularProgress percentage={65} />
               </div>
               <div>
-                <p className="text-sm opacity-90">12 weeks completed</p>
-                <p className="text-sm opacity-90">8 weeks remaining</p>
+                <p className="text-sm text-pink-600">12 weeks completed</p>
+                <p className="text-sm text-pink-600">8 weeks remaining</p>
               </div>
             </div>
           </motion.div>
@@ -164,50 +169,25 @@ const Dashboard = () => {
 };
 
 // Components
-// eslint-disable-next-line react/prop-types
-const CourseCard = ({ icon, title, progress }) => (
-  <motion.div 
-    whileHover={{ scale: 1.02 }}
-    className="group p-4 bg-gradient-to-br from-pink-600/10 to-purple-600/10 rounded-xl border border-white/20 shadow-sm"
-  >
-    <div className="flex items-center gap-4 mb-4">
-      <div className="w-12 h-12 bg-gradient-to-br from-pink-600/20 to-purple-600/20 rounded-lg flex items-center justify-center">
-        {icon}
-      </div>
-      <h3 className="font-medium text-white">{title}</h3>
-    </div>
-    <div className="flex items-center gap-3">
-      <div className="w-full bg-pink-200/20 rounded-full h-2">
-        <div 
-          className="bg-white h-2 rounded-full transition-all" 
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div>
-    </div>
-  </motion.div>
-);
-
-// eslint-disable-next-line react/prop-types
 const EnrolledCourse = ({ title, code, time }) => (
   <motion.div 
     whileHover={{ scale: 1.02 }}
-    className="p-3 bg-gradient-to-br from-pink-600/10 to-purple-600/10 rounded-lg border border-white/20 shadow-sm"
+    className="p-3 bg-cream-100 rounded-lg border border-pink-100 shadow-sm"
   >
     <div className="flex justify-between items-center">
       <div>
-        <h4 className="font-medium text-white">{title}</h4>
-        <p className="text-sm text-pink-100">{code}</p>
+        <h4 className="font-medium text-pink-800">{title}</h4>
+        <p className="text-sm text-pink-600">{code}</p>
       </div>
-      <span className="text-sm bg-pink-600/20 text-white px-2 py-1 rounded-md">{time}</span>
+      <span className="text-sm bg-pink-50 text-pink-800 px-2 py-1 rounded-md">{time}</span>
     </div>
   </motion.div>
 );
 
-// eslint-disable-next-line react/prop-types
 const CircularProgress = ({ percentage }) => (
   <svg className="w-full h-full" viewBox="0 0 100 100">
     <circle 
-      className="text-pink-200/20"
+      className="text-pink-200"
       strokeWidth="8"
       stroke="currentColor"
       fill="transparent"
@@ -216,7 +196,7 @@ const CircularProgress = ({ percentage }) => (
       cy="50"
     />
     <circle 
-      className="text-white"
+      className="text-pink-600"
       strokeWidth="8"
       strokeDasharray={`${percentage} ${100 - percentage}`}
       strokeLinecap="round"

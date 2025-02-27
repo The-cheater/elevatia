@@ -12,6 +12,7 @@ import Civil from "./pages/civil";
 import Dashboard from "./pages/dashboard";
 import EngineeringPage from "./pages/engineering";
 import CSERoadmapPage from "./pages/roadmap";
+import DSA from "./pages/dsa";
 
 import './App.css';
 
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/roadmap",
         element: <CSERoadmapPage />,
+      },
+      {
+        path: "/dsa",
+        element: <DSA />,
       },
 
 

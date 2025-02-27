@@ -1,144 +1,159 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, BookOpen, Tag, LayoutGrid, Code, Cpu, Database, Network, Server, Terminal, BookText } from "lucide-react";
+import { Search, BookText, Download } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function BookFinder() {
-  // Popular books data
+  // Popular books data with legitimate free download links
   const popularBooks = [
     {
-      title: "Clean Code",
-      author: "Robert C. Martin",
-      cover: "https://m.media-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg",
+      title: "Automate the Boring Stuff with Python",
+      author: "Al Sweigart",
+      cover: "https://m.media-amazon.com/images/I/91eop2wSWzL._SY466_.jpg", // Updated URL
+      downloadLink: "https://automatetheboringstuff.com/2e/chapter0/"
     },
     {
-      title: "Design Patterns",
-      author: "Erich Gamma",
-      cover: "https://m.media-amazon.com/images/I/51szD9HC9pL._SX395_BO1,204,203,200_.jpg",
+      title: "Think Python",
+      author: "Allen B. Downey",
+      cover: "https://m.media-amazon.com/images/I/71p5NwR2RjL._SY466_.jpg", // Updated URL
+      downloadLink: "https://greenteapress.com/thinkpython/thinkpython.pdf"
     },
     {
-      title: "The Pragmatic Programmer",
-      author: "Andrew Hunt",
-      cover: "https://m.media-amazon.com/images/I/51W1sBPO7tL._SX380_BO1,204,203,200_.jpg",
+      title: "The Linux Command Line",
+      author: "William Shotts",
+      cover: "https://m.media-amazon.com/images/I/81PkqYm-1kL._SY466_.jpg", // Updated URL
+      downloadLink: "https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download"
     },
     {
-      title: "Introduction to Algorithms",
-      author: "Thomas H. Cormen",
-      cover: "https://m.media-amazon.com/images/I/41SNoh5ZhOL._SX376_BO1,204,203,200_.jpg",
-    },
+      title: "Programming Languages: Application and Interpretation",
+      author: "Shriram Krishnamurthi",
+      cover: "https://m.media-amazon.com/images/I/81v1BQwA5sL._SY466_.jpg", // Updated URL
+      downloadLink: "https://www.plai.org/book.pdf"
+    }
   ];
+
+  // Fallback image URL
+  const fallbackImage = "https://via.placeholder.com/300x400?text=Cover+Not+Available";
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-pink-50 to-pink-100">
       {/* Hero Section */}
       <div className="flex-1 container px-4 md:px-6 py-12">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent"
+          >
             DISCOVER BOOKS<br />THAT YOU NEED!!
-          </h2>
+          </motion.h2>
 
-          <p className="text-xl md:text-2xl font-medium text-pink-800">Find Your Favorite Engineering & Computer Science Book</p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl font-medium text-pink-800"
+          >
+            Find Your Favorite Engineering & Computer Science Book
+          </motion.p>
 
           {/* Search Bar */}
-          <div className="relative">
+          <motion.div 
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="relative"
+          >
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-6 w-6 text-pink-500" />
             <Input
               placeholder="Search books..."
-              className="pl-12 py-6 text-lg border-pink-300 focus:border-pink-500 focus:ring-pink-500"
+              className="pl-12 py-6 text-lg border-pink-300 focus:border-pink-500 focus:ring-pink-500 shadow-lg hover:shadow-xl transition-shadow"
             />
-          </div>
-          <p className="text-pink-600">Type the title or the author name of the book you want</p>
+          </motion.div>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-pink-600"
+          >
+            Type the title or the author name of the book you want
+          </motion.p>
         </div>
       </div>
 
       {/* Popular Books Section */}
       <div className="container px-4 md:px-6 py-12 space-y-12">
-        <h3 className="text-2xl font-bold uppercase flex items-center gap-2 text-pink-900">
+        <motion.h3 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-2xl font-bold uppercase flex items-center gap-2 text-pink-900"
+        >
           <BookText className="h-6 w-6 text-pink-600" /> Popular Books
-        </h3>
+        </motion.h3>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {popularBooks.map((book, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 + index * 0.2 }}
+              whileHover={{ scale: 1.05 }}
               className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              <img
-                src={book.cover}
-                alt={book.title}
-                className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
-              />
+              <div className="relative overflow-hidden">
+                <img
+                  src={book.cover}
+                  alt={book.title}
+                  className="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    console.error(`Failed to load image: ${book.cover}`); // Debugging
+                    e.target.src = fallbackImage; // Fallback image
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-pink-600/30 to-transparent" />
+              </div>
+
               <div className="p-4">
                 <h4 className="text-lg font-bold text-pink-900">{book.title}</h4>
-                <p className="text-sm text-pink-600">{book.author}</p>
+                <p className="text-sm text-pink-600 mb-4">{book.author}</p>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full gap-2 hover:bg-pink-100 text-pink-600 border-pink-300"
+                  >
+                    <a 
+                      href={book.downloadLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center"
+                    >
+                      <Download className="h-4 w-4 animate-bounce" />
+                      Download PDF
+                    </a>
+                  </Button>
+                </motion.div>
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Categories Section */}
-      <div className="container px-4 md:px-6 py-12 space-y-12">
-        {/* Book by Genre */}
-        <div className="space-y-6">
-          <h3 className="text-2xl font-bold uppercase flex items-center gap-2 text-pink-900">
-            <BookOpen className="h-6 w-6 text-pink-600" /> Book by Genre
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["Engineering", "Data Science", "AI/ML", "Web Development"].map((genre, index) => (
-              <div
-                key={index}
-                className="aspect-square bg-pink-200/50 rounded-lg flex flex-col items-center justify-center p-4 hover:bg-pink-300/50 transition-all hover:scale-105"
-              >
-                <Code className="h-8 w-8 text-pink-700 mb-2" />
-                <p className="text-lg font-medium text-pink-900">{genre}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Select Domain */}
-        <div className="space-y-6">
-          <h3 className="text-2xl font-bold uppercase flex items-center gap-2 text-pink-900">
-            <LayoutGrid className="h-6 w-6 text-pink-600" /> Select Your Domain
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["Frontend", "Backend", "DevOps", "Cloud"].map((domain, index) => (
-              <Button
-                key={index}
-                variant="outline"
-                className="h-24 flex flex-col items-center justify-center gap-2 border-pink-300 hover:bg-pink-100 hover:scale-105 transition-transform"
-              >
-                {domain === "Frontend" && <Cpu className="h-6 w-6 text-pink-600" />}
-                {domain === "Backend" && <Server className="h-6 w-6 text-pink-600" />}
-                {domain === "DevOps" && <Terminal className="h-6 w-6 text-pink-600" />}
-                {domain === "Cloud" && <Network className="h-6 w-6 text-pink-600" />}
-                <span className="text-pink-900">{domain}</span>
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        {/* Popular Subjects */}
-        <div className="space-y-6">
-          <h3 className="text-2xl font-bold uppercase flex items-center gap-2 text-pink-900">
-            <Tag className="h-6 w-6 text-pink-600" /> POPULAR SUBJECTS
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["Python", "JavaScript", "React", "Node.js", "SQL", "Docker", "Kubernetes", "AWS"].map((subject, index) => (
-              <Button
-                key={index}
-                variant="outline"
-                className="gap-2 border-pink-300 hover:bg-pink-100 hover:scale-105 transition-transform"
-              >
-                <Tag className="h-4 w-4 text-pink-600" />
-                <span className="text-pink-900">{subject}</span>
-              </Button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      
+      {/* Footer */}
+      <motion.footer 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="p-6 border-t border-pink-200 bg-pink-50 text-center text-pink-900"
+      >
+        <p className="text-sm">© 2024 Book Finder. All rights reserved.</p>
+      </motion.footer>
     </div>
   );
 }

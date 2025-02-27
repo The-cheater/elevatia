@@ -166,45 +166,58 @@ const CSERoadmapPage = () => {
         id: 1,
         title: "Introduction to DSA",
         url: "https://www.youtube.com/watch?v=RBSGKlAvoiM",
-        thumbnail: "/api/placeholder/320/180",
+        thumbnail: "https://i.ytimg.com/vi/RBSGKlAvoiM/hqdefault.jpg",
       },
       {
         id: 2,
         title: "Arrays Explained",
         url: "https://www.youtube.com/watch?v=QJNwK2uJyGs",
-        thumbnail: "/api/placeholder/320/180",
+        thumbnail: "https://i.ytimg.com/vi/QJNwK2uJyGs/hqdefault.jpg",
       },
       {
         id: 3,
         title: "Linked Lists Tutorial",
         url: "https://www.youtube.com/watch?v=njTh_OwMljA",
-        thumbnail: "/api/placeholder/320/180",
+        thumbnail: "https://i.ytimg.com/vi/njTh_OwMljA/hqdefault.jpg",
       },
       {
         id: 4,
         title: "Stacks & Queues Explained",
         url: "https://www.youtube.com/watch?v=wjI1WNcIntg",
-        thumbnail: "/api/placeholder/320/180",
+        thumbnail: "https://i.ytimg.com/vi/wjI1WNcIntg/hqdefault.jpg",
       },
       {
         id: 5,
         title: "Trees & Graphs Basics",
         url: "https://www.youtube.com/watch?v=1XC3p2zBK34",
-        thumbnail: "/api/placeholder/320/180",
+        thumbnail: "https://i.ytimg.com/vi/1XC3p2zBK34/hqdefault.jpg",
       },
       {
         id: 6,
         title: "Sorting Algorithms",
         url: "https://www.youtube.com/watch?v=kgBjXUE_Nwc",
-        thumbnail: "/api/placeholder/320/180",
+        thumbnail: "https://i.ytimg.com/vi/kgBjXUE_Nwc/hqdefault.jpg",
       },
       {
         id: 7,
         title: "Dynamic Programming",
         url: "https://www.youtube.com/watch?v=oBt53YbR9Kk",
-        thumbnail: "/api/placeholder/320/180",
+        thumbnail: "https://i.ytimg.com/vi/oBt53YbR9Kk/hqdefault.jpg",
+      },
+      {
+        id: 8,
+        title: "Data Structures Full Course",
+        url: "https://www.youtube.com/watch?v=ojoT7VTuGOg",
+        thumbnail: "https://i.ytimg.com/vi/ojoT7VTuGOg/hqdefault.jpg",
+      },
+      {
+        id: 9,
+        title: "Data Structures - Full Course Using C and C++",
+        url: "https://www.youtube.com/watch?v=B31LgI4Y4DQ",
+        thumbnail: "https://i.ytimg.com/vi/B31LgI4Y4DQ/hqdefault.jpg",
       },
     ];
+    
 
     return (
       <motion.div

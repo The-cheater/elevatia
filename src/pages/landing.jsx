@@ -22,6 +22,7 @@ import {
 import CountUp from "react-countup";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const ChatIcon = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -140,12 +141,36 @@ const ChatIcon = () => {
 };
 
 function Landing() {
+  const [selectedDomain, setSelectedDomain] = useState('');
+  const [selectedQualification, setSelectedQualification] = useState('');
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    if (selectedDomain === 'dsa' && selectedQualification === 'bachelors') {
+      navigate('/cse');
+    }
+    // Add other navigation logic here if needed
+  };
   const ExamsSection = () => {
+    const navigate = useNavigate();
+    const examLinks = {
+      'JEE MAINS': 'https://jeemain.nta.nic.in/syllabus',
+      'JEE ADVANCE': 'https://jeeadv.ac.in/syllabus',
+      'GATE': 'https://gate.iitb.ac.in/syllabus',
+      'UPSC': 'https://www.upsc.gov.in/examinations/syllabus',
+      'AFCAT': 'https://afcat.cdac.in/AFCAT/Syllabus',
+      'Indian Air Force': 'https://indianairforce.nic.in',
+      'CAT': 'https://iimcat.ac.in/per/g01/pub/756/ASM/WebPortal/1/PDF/CAT_Syllabus.pdf',
+      'UGC-NET': 'https://ugcnet.nta.nic.in/syllabus',
+      'SAT': 'https://collegereadiness.collegeboard.org/sat/inside-the-test/what-the-sat-tests',
+      'CBSE': 'https://cbse.gov.in/curriculum'
+    };
+    
     const examGroups = [
       {
         title: "Engineering",
         icon: <Rocket className="h-6 w-6" />,
-        exams: ["JEE MAINS", "JEE ADVANCE", "GATE", "GATE2023"],
+        exams: ["JEE MAINS", "JEE ADVANCE", "GATE"],
       },
       {
         title: "Civil Services",
@@ -160,7 +185,15 @@ function Landing() {
     ];
 
     const handleExamClick = (examName) => {
-      console.log(`Selected exam: ${examName}`);
+      const route = examLinks[examName];
+      
+      if (route.startsWith('http')) {
+        // Open external links in new tab
+        window.open(route, '_blank');
+      } else {
+        // Internal navigation using React Router
+        navigate(route);
+      }
     };
 
     return (
@@ -233,36 +266,43 @@ function Landing() {
           </h2>
 
           <div className="space-y-4">
-            <Select>
-              <SelectTrigger className="w-full bg-white text-pink-600">
-                <BookOpen className="h-5 w-5 mr-2" />
-                <SelectValue placeholder="Select Your Domain" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="web">Web Development</SelectItem>
-                <SelectItem value="data">Data Science</SelectItem>
-                <SelectItem value="cyber">Cybersecurity</SelectItem>
-              </SelectContent>
-            </Select>
+          <Select value={selectedDomain} onValueChange={setSelectedDomain}>
+            <SelectTrigger className="w-full bg-white text-pink-600">
+              <BookOpen className="h-5 w-5 mr-2" />
+              <SelectValue placeholder="Select Your Domain" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="web">Web Development</SelectItem>
+              <SelectItem value="data">Data Science</SelectItem>
+              <SelectItem value="cyber">Cybersecurity</SelectItem>
+              <SelectItem value="dsa">DSA</SelectItem>
+            </SelectContent>
+          </Select>
 
-            <Select>
-              <SelectTrigger className="w-full bg-white text-pink-600">
-                <GraduationCap className="h-5 w-5 mr-2" />
-                <SelectValue placeholder="Select your highest qualification" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="bachelors">Bachelor's</SelectItem>
-                <SelectItem value="masters">Master's</SelectItem>
-                <SelectItem value="diploma">Diploma</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <Button className="w-full md:w-auto px-8 py-6 text-lg bg-white text-pink-600 hover:bg-pink-50">
-            Explore Now
-          </Button>
+          <Select
+            value={selectedQualification}
+            onValueChange={setSelectedQualification}
+          >
+            <SelectTrigger className="w-full bg-white text-pink-600">
+              <GraduationCap className="h-5 w-5 mr-2" />
+              <SelectValue placeholder="Select your highest qualification" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="bachelors">Bachelor's</SelectItem>
+              <SelectItem value="masters">Master's</SelectItem>
+              <SelectItem value="diploma">Diploma</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
+
+        <Button 
+          onClick={handleExplore}
+          className="w-full md:w-auto px-8 py-6 text-lg bg-white text-pink-600 hover:bg-pink-50"
+        >
+          Explore Now
+        </Button>
       </div>
+    </div>
 
       {/* Stats Section */}
       <div className="container px-4 md:px-6 py-12 grid md:grid-cols-3 gap-4">
@@ -485,7 +525,7 @@ function Landing() {
             asChild
             className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-6 text-lg"
           >
-            <Link to="/book-finder">
+            <Link to="/bookfinder">
               Find Your Books
             </Link>
           </Button>

@@ -138,10 +138,7 @@ export default function BookFinder() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="p-6 border-t border-pink-200 bg-pink-50 text-center text-pink-900">
-        <p className="text-sm">© 2023 Book Finder. All rights reserved.</p>
-      </footer>
+      
     </div>
   );
 }

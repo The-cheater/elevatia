@@ -16,7 +16,8 @@ export default function CSE() {
         { name: "Data Structures Masterclass", url: "#" },
         { name: "Algorithm Design & Analysis", url: "#" }
       ],
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80"
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80",
+      roadmapUrl: "/roadmap" // Added roadmap URL
     },
     {
       title: "Advanced Topics",
@@ -137,6 +138,20 @@ export default function CSE() {
                 whileHover={{ x: "0%" }}
                 transition={{ duration: 0.5 }}
               />
+
+              {/* ROADMAP Button */}
+              {section.roadmapUrl && (
+                <motion.a
+                  href={section.roadmapUrl}
+                  className="absolute top-6 right-6 z-10"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <button className="px-6 py-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    ROADMAP
+                  </button>
+                </motion.a>
+              )}
 
               <div className="flex items-center mb-6">
                 <motion.div

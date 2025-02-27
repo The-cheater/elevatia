@@ -158,9 +158,9 @@ function Landing() {
       'JEE ADVANCE': 'https://jeeadv.ac.in/syllabus',
       'GATE': 'https://gate.iitb.ac.in/syllabus',
       'UPSC': 'https://www.upsc.gov.in/examinations/syllabus',
-      'AFCAT': 'https://afcat.cdac.in/AFCAT/Syllabus',
+      'AFCAT': 'https://afcat.cdac.in',
       'Indian Air Force': 'https://indianairforce.nic.in',
-      'CAT': 'https://iimcat.ac.in/per/g01/pub/756/ASM/WebPortal/1/PDF/CAT_Syllabus.pdf',
+      'CAT': 'https://iimcat.ac.in',
       'UGC-NET': 'https://ugcnet.nta.nic.in/syllabus',
       'SAT': 'https://collegereadiness.collegeboard.org/sat/inside-the-test/what-the-sat-tests',
       'CBSE': 'https://cbse.gov.in/curriculum'

@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Facebook, Github, X } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   return (
@@ -74,14 +75,6 @@ export default function LoginPage() {
               Login
             </Button>
           </form>
-
-          {/* Query Section */}
-          <div className="text-center text-sm">
-            HAVE A QUERY?{" "}
-            <a href="#" className="underline hover:text-primary border-b">
-              Contact support
-            </a>
-          </div>
         </div>
       </div>
     </div>

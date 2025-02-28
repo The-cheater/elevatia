@@ -87,22 +87,28 @@ const ChatIcon = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-20 right-0 w-80 bg-white rounded-lg shadow-xl border border-pink-100">
-          <div className="bg-pink-600 text-white p-4 rounded-t-lg">
-            <h3 className="font-semibold">Learning Assistant</h3>
+        <div className="absolute bottom-20 right-0 w-96 bg-white rounded-lg shadow-xl border border-pink-100 transform transition-transform duration-300 ease-in-out">
+          <div className="bg-pink-600 text-white p-4 rounded-t-lg flex justify-between items-center">
+            <h3 className="font-semibold">ELEVIA ASSIST </h3>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-white hover:text-pink-200"
+            >
+              ✕
+            </button>
           </div>
 
-          <div className="h-64 p-4 overflow-y-auto">
+          <div className="h-96 p-4 overflow-y-auto bg-pink-50">
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`mb-4 ${msg.isBot ? "text-left" : "text-right"}`}
+                className={`mb-4 flex ${msg.isBot ? "justify-start" : "justify-end"}`}
               >
                 <div
-                  className={`inline-block p-2 rounded-lg ${
+                  className={`max-w-xs p-3 rounded-lg ${
                     msg.isBot
-                      ? "bg-pink-50 text-gray-800"
-                      : "bg-pink-600 text-white"
+                      ? "bg-white text-gray-800 shadow-sm"
+                      : "bg-pink-300 text-white shadow-md"
                   }`}
                 >
                   {msg.text}
@@ -110,27 +116,29 @@ const ChatIcon = () => {
               </div>
             ))}
             {isLoading && (
-              <div className="text-center text-pink-600">
-                Typing...
+              <div className="flex justify-start">
+                <div className="bg-white p-3 rounded-lg shadow-sm">
+                TYPING...
+                </div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="p-4 border-t border-pink-100">
+          <div className="p-4 border-t border-pink-100 bg-white">
             <div className="flex gap-2">
               <Input
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
                 placeholder="Type your message..."
-                className="flex-1"
+                className="flex-1 border-pink-200 focus:border-pink-300"
               />
               <Button
                 onClick={handleSendMessage}
-                className="bg-pink-600 hover:bg-pink-700"
+                className="bg-cream-200hover bg-pink-200"
               >
-                Send
+                Send 
               </Button>
             </div>
           </div>
@@ -139,7 +147,6 @@ const ChatIcon = () => {
     </div>
   );
 };
-
 function Landing() {
   const [selectedDomain, setSelectedDomain] = useState('');
   const [selectedQualification, setSelectedQualification] = useState('');

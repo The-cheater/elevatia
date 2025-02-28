@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "concurrently \"npm run server\" \"cd ../frontend && npm run dev\""
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
@@ -15,16 +16,27 @@
     "@radix-ui/react-navigation-menu": "^1.2.5",
     "@radix-ui/react-select": "^2.1.6",
     "@radix-ui/react-slot": "^1.1.2",
+    "@react-oauth/google": "^0.12.1",
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/vite": "^4.0.8",
     "axios": "^1.8.1",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "embla-carousel-react": "^8.5.2",
+    "express": "^4.21.2",
     "framer-motion": "^12.4.7",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.475.0",
     "mongodb": "^6.13.1",
+    "mongoose": "^8.11.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.2",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
@@ -33,6 +45,7 @@
     "react-slick": "^0.30.3",
     "shadcn-ui": "^0.9.4",
     "slick-carousel": "^1.8.1",
+    "socket.io": "^4.8.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -43,7 +56,7 @@
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.19.0",
+    "eslint": "^9.21.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
@@ -51,5 +64,10 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "vite": "^6.1.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

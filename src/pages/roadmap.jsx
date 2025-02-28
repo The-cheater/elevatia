@@ -287,28 +287,23 @@ const CSERoadmapPage = () => {
 
         {/* Roadmap Section */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
           className="max-w-6xl mx-auto px-6 py-12 relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold text-pink-800 mb-8">DSA Roadmap</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {roadmap.map((step) => (
-              <motion.div
-                key={step.id}
-                variants={itemVariants}
-                whileHover="hover"
-                whileTap="tap"
-                className="bg-white/90 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-pink-100/50"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-pink-50 rounded-lg">{step.icon}</div>
-                  <h3 className="text-xl font-semibold text-pink-800">{step.title}</h3>
-                </div>
-                <p className="text-pink-600">{step.description}</p>
-              </motion.div>
-            ))}
+          <h2 className="text-3xl font-bold text-pink-800 mb-8">Complete DSA Roadmap</h2>
+          <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-pink-100/50">
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+              <img
+                src="/roadmap-image.png"
+                alt="DSA Roadmap"
+                className="w-full h-auto rounded-lg min-w-[800px]"
+              />
+            </div>
+            <p className="text-pink-600 mt-4 text-center text-sm animate-pulse">
+              ← Scroll horizontally to view full roadmap →
+            </p>
           </div>
         </motion.div>
 

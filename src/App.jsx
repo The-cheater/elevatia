@@ -13,7 +13,8 @@ import Dashboard from "./pages/dashboard";
 import EngineeringPage from "./pages/engineering";
 import CSERoadmapPage from "./pages/roadmap";
 import DSA from "./pages/dsa";
-
+import Blog from "./pages/blog";
+<pages></pages>
 import './App.css';
 
 const router = createBrowserRouter([
@@ -72,8 +73,10 @@ const router = createBrowserRouter([
         path: "/dsa",
         element: <DSA />,
       },
-
-
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
     ],
   },
 ]);

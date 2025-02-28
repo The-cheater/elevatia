@@ -105,7 +105,24 @@ const EngineeringPage = () => {
       }
     }
   };
+// For all page components, use this structure:
+const YourPageComponent = () => {
+  return (
+    <div className="min-h-screen bg-your-color relative overflow-hidden">
+      {/* Background elements */}
+      
+      <div className="page-container">
+        {/* Header */}
+        
+        <main className="w-full">
+          {/* Your content */}
+        </main>
 
+        {/* Footer */}
+      </div>
+    </div>
+  );
+};
   return (
     <div className="min-h-screen bg-pink-50 relative overflow-hidden">
       {/* Animated background elements */}

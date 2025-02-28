@@ -9,25 +9,25 @@ export default function BookFinder() {
     {
       title: "Automate the Boring Stuff with Python",
       author: "Al Sweigart",
-      cover: "https://m.media-amazon.com/images/I/91eop2wSWzL._SY466_.jpg", // Updated URL
+      cover: "https://m.media-amazon.com/images/I/81S9vwXjScL._SY425_.jpg", // Updated URL
       downloadLink: "https://automatetheboringstuff.com/2e/chapter0/"
     },
     {
       title: "Think Python",
       author: "Allen B. Downey",
-      cover: "https://m.media-amazon.com/images/I/71p5NwR2RjL._SY466_.jpg", // Updated URL
+      cover: "https://m.media-amazon.com/images/I/71ND9kxGLGL.jpg", // Updated URL
       downloadLink: "https://greenteapress.com/thinkpython/thinkpython.pdf"
     },
     {
       title: "The Linux Command Line",
       author: "William Shotts",
-      cover: "https://m.media-amazon.com/images/I/81PkqYm-1kL._SY466_.jpg", // Updated URL
+      cover: "https://m.media-amazon.com/images/I/81v21VRpJJL.jpg", // Updated URL
       downloadLink: "https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download"
     },
     {
       title: "Programming Languages: Application and Interpretation",
       author: "Shriram Krishnamurthi",
-      cover: "https://m.media-amazon.com/images/I/81v1BQwA5sL._SY466_.jpg", // Updated URL
+      cover: "https://upload.wikimedia.org/wikipedia/en/a/ac/PLAI-cover.jpg", // Updated URL
       downloadLink: "https://www.plai.org/book.pdf"
     }
   ];

@@ -52,7 +52,24 @@ const Header = () => {
       transition: { duration: 0.3 },
     },
   };
+// For all page components, use this structure:
+const YourPageComponent = () => {
+  return (
+    <div className="min-h-screen bg-your-color relative overflow-hidden">
+      {/* Background elements */}
+      
+      <div className="page-container">
+        {/* Header */}
+        
+        <main className="w-full">
+          {/* Your content */}
+        </main>
 
+        {/* Footer */}
+      </div>
+    </div>
+  );
+};
   return (
     <motion.header
       className="flex w-full top-0 z-50 px-6 py-4 bg-gradient-to-r from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 backdrop-blur-lg"

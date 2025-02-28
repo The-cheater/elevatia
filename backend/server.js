@@ -7,6 +7,8 @@ dotenv.config(); // Load environment variables
 
 // Initialize Express App
 const app = express();
+
+// Middleware setup
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON
 

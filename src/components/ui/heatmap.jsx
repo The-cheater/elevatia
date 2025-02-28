@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Heatmap = () => {
   const [activityData, setActivityData] = useState({});
-  const userId = localStorage.getItem("userId");
+  const googleId = localStorage.getItem("googleId");
 
   // Fetch activity data
   useEffect(() => {
@@ -24,6 +24,12 @@ const Heatmap = () => {
 
   // Months configuration
   const months = [
+    { name: "Jan", days: 31, startDay: 0, year: 2024, number: 1 },
+    { name: "Feb", days: 29, startDay: 3, year: 2024, number: 2 },
+    { name: "Mar", days: 31, startDay: 4, year: 2024, number: 3 },
+    { name: "Apr", days: 30, startDay: 0, year: 2024, number: 4 },
+    { name: "May", days: 31, startDay: 2, year: 2024, number: 5 },
+    { name: "Jun", days: 30, startDay: 5, year: 2024, number: 6 },
     { name: "Jan", days: 31, startDay: 0, year: 2024, number: 1 },
     { name: "Feb", days: 29, startDay: 3, year: 2024, number: 2 },
     { name: "Mar", days: 31, startDay: 4, year: 2024, number: 3 },
@@ -53,6 +59,7 @@ const Heatmap = () => {
                 const hours = activityData[date] || 0;
 
                 return (
+                  <motion.div
                   <motion.div
                     key={dayIndex}
                     initial={{ scale: 0.8 }}

@@ -395,7 +395,7 @@ function Landing() {
             <Link key={name} to={path} className="w-full">
               <Button
                 variant="outline"
-                className="h-24 w-full text-pink-700 border-pink-200 hover:bg-pink-50 hover:-translate-y-2 transition-transform"
+                className="h-24 w-full text-pink-500 border-pink-800 hover:bg-pink-50 hover:-translate-y-2 transition-transform"
               >
                 {name}
               </Button>

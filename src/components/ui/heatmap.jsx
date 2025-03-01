@@ -60,13 +60,13 @@ const Heatmap = () => {
 
                 return (
                   <motion.div
-                  <motion.div
-                    key={dayIndex}
-                    initial={{ scale: 0.8 }}
-                    animate={{ scale: 1 }}
-                    className={`w-3 h-3 rounded-sm ${getColorIntensity(hours)} transition-colors duration-300`}
-                    title={`${month.name} ${dayIndex + 1}: ${hours} hours`}
-                  />
+  key={dayIndex}
+  initial={{ scale: 0.8 }}
+  animate={{ scale: 1 }}
+  className={`w-3 h-3 rounded-sm ${getColorIntensity(hours)} transition-colors duration-300`}
+  title={`${month.name} ${dayIndex + 1}: ${hours} hours`}
+/>
+
                 );
               })}
             </div>

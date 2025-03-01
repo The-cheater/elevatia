@@ -205,7 +205,7 @@ const BlogPage = () => {
                 name: "Turanya Mishra",
                 role: "3rd Year CSE, BPUT Rourkela",
                 description: "A tech enthusiast with a keen interest in software development and artificial intelligence. Turanya is always on the lookout for innovative ways to simplify learning and inspire fellow students.",
-                icon: <Rocket className="w-10 h-10 text-pink-500" />,image: "public/Screenshot 2025-03-01 002540.png",
+                icon: <Rocket className="w-10 h-10 text-pink-500" />,image: "public/WhatsApp Image 2025-03-01 at 08.40.01_2831cc0c.jpg",
               },
               {
                 name: "Ankita Pradhan",

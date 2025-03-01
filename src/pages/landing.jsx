@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { motion, AnimatePresence } from "framer-motion";
+
 import {
   Select,
   SelectContent,
@@ -136,7 +138,7 @@ const ChatIcon = () => {
               />
               <Button
                 onClick={handleSendMessage}
-                className="bg-cream-200hover bg-pink-200"
+                className="bg-pink-200 hover:bg-pink-300"
               >
                 Send 
               </Button>
@@ -147,6 +149,7 @@ const ChatIcon = () => {
     </div>
   );
 };
+
 function Landing() {
   const [selectedDomain, setSelectedDomain] = useState('');
   const [selectedQualification, setSelectedQualification] = useState('');
@@ -156,8 +159,8 @@ function Landing() {
     if (selectedDomain === 'dsa' && selectedQualification === 'bachelors') {
       navigate('/cse');
     }
-    // Add other navigation logic here if needed
   };
+
   const ExamsSection = () => {
     const navigate = useNavigate();
     const examLinks = {
@@ -195,10 +198,8 @@ function Landing() {
       const route = examLinks[examName];
       
       if (route.startsWith('http')) {
-        // Open external links in new tab
         window.open(route, '_blank');
       } else {
-        // Internal navigation using React Router
         navigate(route);
       }
     };
@@ -277,8 +278,20 @@ function Landing() {
             <SelectTrigger className="w-full bg-white text-pink-600">
               <BookOpen className="h-5 w-5 mr-2" />
               <SelectValue placeholder="Select Your Domain" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 ml-2 text-pink-600"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectItem value="web">Web Development</SelectItem>
               <SelectItem value="data">Data Science</SelectItem>
               <SelectItem value="cyber">Cybersecurity</SelectItem>
@@ -293,15 +306,26 @@ function Landing() {
             <SelectTrigger className="w-full bg-white text-pink-600">
               <GraduationCap className="h-5 w-5 mr-2" />
               <SelectValue placeholder="Select your highest qualification" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 ml-2 text-pink-600"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectItem value="bachelors">Bachelor's</SelectItem>
               <SelectItem value="masters">Master's</SelectItem>
               <SelectItem value="diploma">Diploma</SelectItem>
             </SelectContent>
           </Select>
         </div>
-
         <Button 
           onClick={handleExplore}
           className="w-full md:w-auto px-8 py-6 text-lg bg-white text-pink-600 hover:bg-pink-50"
@@ -381,7 +405,6 @@ function Landing() {
 
         {/* New Buttons Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-          {/* Resume Builder Button */}
           <div className="w-full">
             <Link
               to={"https://www.hackerrank.com/resume"}
@@ -398,7 +421,6 @@ function Landing() {
             </Link>
           </div>
 
-          {/* ATS Score Scanner Button */}
           <div className="w-full">
             <Link
               to={"https://resumeworded.com/resume-scanner"}
@@ -417,7 +439,6 @@ function Landing() {
             </Link>
           </div>
 
-          {/* Email Templates Button */}
           <Link
               to={{ pathname: "/email-templates" }}
               rel="noopener noreferrer"
@@ -446,7 +467,6 @@ function Landing() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Review Card 1 */}
           <Card className="hover:shadow-lg transition-shadow border-pink-100">
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center gap-2">
@@ -473,7 +493,6 @@ function Landing() {
             </CardContent>
           </Card>
 
-          {/* Review Card 2 */}
           <Card className="hover:shadow-lg transition-shadow border-pink-100">
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center gap-2">
@@ -500,7 +519,6 @@ function Landing() {
             </CardContent>
           </Card>
 
-          {/* Stats Card */}
           <Card className="bg-pink-50 border-pink-100">
             <CardContent className="p-6 flex flex-col items-center justify-center h-full space-y-4">
               <div className="text-4xl font-bold text-pink-600">4.9/5</div>
@@ -525,6 +543,7 @@ function Landing() {
           </Card>
         </div>
       </section>
+
       {/* Search Section */}
       <div className="container px-4 md:px-6 py-12 space-y-6 text-center">
         <div className="flex justify-center">

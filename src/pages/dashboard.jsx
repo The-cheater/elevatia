@@ -3,11 +3,14 @@ import { Bell, Menu, UserCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Heatmap from "@/components/ui/heatmap";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [username] = useState("Turanya Mishra");
   const activeTimeRef = useRef(0);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [userId, setUserId] = useState("user123"); // Default userId
 
   // Generate dummy heatmap data for Feb 25 - March 1
   const heatmapData = [
@@ -79,6 +82,7 @@ const Dashboard = () => {
               </span>
             </div>
             <Heatmap 
+              userId={userId}
               data={heatmapData}
               color="#ec4899"
               className="h-32"

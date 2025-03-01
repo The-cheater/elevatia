@@ -1,78 +1,44 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import axios from "axios";
+import React from 'react';
 
-const Heatmap = () => {
-  const [activityData, setActivityData] = useState({});
-  const googleId = localStorage.getItem("googleId");
+const Heatmap = ({ userId, data, color, className }) => {
+  // Default props if not provided
+  const safeUserId = userId || 'default-user';
+  const safeData = data || [];
+  const safeColor = color || '#ec4899';
+  const safeClassName = className || 'h-32';
 
-  // Fetch activity data
-  useEffect(() => {
-    const fetchActivity = async () => {
-      if (!userId) return;
-      
-      try {
-        const response = await axios.get(`http://localhost:5000/api/activity/${userId}`);
-        setActivityData(response.data || {});
-      } catch (error) {
-        console.error("Error fetching activity data:", error);
-      }
-    };
+  // Calculate maximum value for scaling
+  const maxCount = Math.max(...safeData.map(item => item.count), 1);
 
-    fetchActivity();
-  }, [userId]);
-
-  // Months configuration
-  const months = [
-    { name: "Jan", days: 31, startDay: 0, year: 2024, number: 1 },
-    { name: "Feb", days: 29, startDay: 3, year: 2024, number: 2 },
-    { name: "Mar", days: 31, startDay: 4, year: 2024, number: 3 },
-    { name: "Apr", days: 30, startDay: 0, year: 2024, number: 4 },
-    { name: "May", days: 31, startDay: 2, year: 2024, number: 5 },
-    { name: "Jun", days: 30, startDay: 5, year: 2024, number: 6 },
-    { name: "Jan", days: 31, startDay: 0, year: 2024, number: 1 },
-    { name: "Feb", days: 29, startDay: 3, year: 2024, number: 2 },
-    { name: "Mar", days: 31, startDay: 4, year: 2024, number: 3 },
-    { name: "Apr", days: 30, startDay: 0, year: 2024, number: 4 },
-    { name: "May", days: 31, startDay: 2, year: 2024, number: 5 },
-    { name: "Jun", days: 30, startDay: 5, year: 2024, number: 6 },
-  ];
-
-  // Color intensity based on hours
-  const getColorIntensity = (hours) => {
-    if (!hours) return "bg-gray-200";
-    if (hours >= 4) return "bg-green-800";
-    if (hours >= 3) return "bg-green-600";
-    if (hours >= 2) return "bg-green-400";
-    if (hours >= 1) return "bg-green-300";
-    return "bg-green-200";
+  // Get intensity based on count
+  const getIntensity = (count) => {
+    return Math.max(0.1, count / maxCount);
   };
 
   return (
-    <div className="overflow-x-auto pb-4">
-      <div className="flex gap-4">
-        {months.map((month) => (
-          <div key={month.name} className="flex flex-col gap-1">
-            <div className="grid grid-cols-7 gap-[2px]">
-              {Array.from({ length: month.days }).map((_, dayIndex) => {
-                const date = `${month.year}-${month.number.toString().padStart(2, "0")}-${(dayIndex + 1).toString().padStart(2, "0")}`;
-                const hours = activityData[date] || 0;
-
-                return (
-                  <motion.div
-  key={dayIndex}
-  initial={{ scale: 0.8 }}
-  animate={{ scale: 1 }}
-  className={`w-3 h-3 rounded-sm ${getColorIntensity(hours)} transition-colors duration-300`}
-  title={`${month.name} ${dayIndex + 1}: ${hours} hours`}
-/>
-
-                );
-              })}
+    <div className={`${safeClassName} w-full`}>
+      <div className="flex h-full justify-between">
+        {safeData.map((item, index) => {
+          const intensity = getIntensity(item.count);
+          const opacity = Math.max(0.1, intensity).toFixed(1);
+          
+          return (
+            <div key={`${item.date}-${index}`} className="flex flex-col h-full justify-end flex-1 mx-1">
+              <div 
+                className="w-full rounded-sm" 
+                style={{ 
+                  backgroundColor: safeColor,
+                  opacity: opacity,
+                  height: `${intensity * 100}%`,
+                }}
+                title={`${item.date}: ${item.count} entries`}
+              />
+              <div className="text-xs text-center mt-1 truncate" style={{ color: safeColor }}>
+                {new Date(item.date).getDate()}
+              </div>
             </div>
-            <div className="text-xs text-gray-600 text-center mt-1">{month.name}</div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

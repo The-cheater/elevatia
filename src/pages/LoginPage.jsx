@@ -6,40 +6,42 @@ import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({ email: "", password: "", name: "" });
+  const [formData, setFormData] = useState({ 
+    email: "", 
+    password: "", 
+    name: "" 
+  });
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
+    setIsSubmitting(true);
 
-    if (!formData.email || !formData.password) {
-      setError("Email and password are required.");
-      return;
-    }
-
-    // Directly navigate to dashboard after validation
-    navigate("/dashboard");
-  };
-// For all page components, use this structure:
-const YourPageComponent = () => {
-  return (
-    <div className="min-h-screen bg-your-color relative overflow-hidden">
-      {/* Background elements */}
+    try {
+      // Basic validation
+      if (!formData.email || !formData.password) {
+        throw new Error("Email and password are required.");
+      }
       
-      <div className="page-container">
-        {/* Header */}
-        
-        <main className="w-full">
-          {/* Your content */}
-        </main>
+      if (!isLogin && !formData.name) {
+        throw new Error("Name is required for registration.");
+      }
 
-        {/* Footer */}
-      </div>
-    </div>
-  );
-};
+      // Instead of API calls, simply store a dummy userId
+      localStorage.setItem("userId", "user123");
+      
+      // Navigate to dashboard
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.message || "Please fill all required fields.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -141,8 +143,9 @@ const YourPageComponent = () => {
                   : "bg-emerald-600 hover:bg-emerald-700"
               }`}
               type="submit"
+              disabled={isSubmitting}
             >
-              {isLogin ? "Login" : "Register"}
+              {isSubmitting ? "Processing..." : (isLogin ? "Login" : "Register")}
             </Button>
           </form>
 

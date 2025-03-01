@@ -512,8 +512,8 @@ function Landing() {
                   <span className="font-medium text-pink-600">PS</span>
                 </div>
                 <div>
-                  <h4 className="font-medium text-pink-800">Priya Singh</h4>
-                  <p className="text-sm text-pink-600">Data Scientist</p>
+                  <h4 className="font-medium text-pink-800">Rakesh Kumar Barik</h4>
+                  <p className="text-sm text-pink-600">BPUT Prof.</p>
                 </div>
               </div>
             </CardContent>
